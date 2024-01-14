@@ -14,9 +14,10 @@ export default function inputText(props: Props) {
         <div className={styles['container']}>
             <div className={styles['label']}>{props.label}</div>
             <TextField 
+                fullWidth
+                color='info'
                 placeholder={props.placeholder}
-                defaultValue={props.defaultValue}
-                fullWidth>
+                defaultValue={props.defaultValue}>
             </TextField>
         </div>
     )
