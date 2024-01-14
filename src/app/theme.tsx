@@ -12,6 +12,9 @@ const customTheme = createTheme({
             main: grey[100],
         },
     },
+    typography: {
+        fontFamily: '"M PLUS Rounded 1c", sans-serif',
+    },
 })
 
 const Theme = ({ children }: { children: React.ReactNode }) => {
