@@ -1,3 +1,5 @@
+// react
+import React from 'react'
 // styles
 import styles from '@/components/input-text/input-text.module.sass'
 // @mui/material
@@ -9,7 +11,7 @@ type Props = {
     defaultValue: string
 }
 
-export default function inputText(props: Props) {
+export default (props: Props) => {
     return (
         <div className={styles['container']}>
             <div className={styles['label']}>{props.label}</div>

@@ -1,9 +1,11 @@
+// react
+import React from 'react'
 // components
 import InputText from '@/components/input-text/input-text.component'
 // styles
 import styles from '@/features/base-converter/base-converter.module.sass'
 
-export default function BaseConverter() {
+export default () => {
     return (
         <div className={styles['container']}>
             <div>
