@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Header() {
     return (
-        <AppBar position='static'>
+        <AppBar position='static' elevation={0}>
             <Toolbar className={styles.container}>
                 <IconButton edge='start' color='inherit'>
                     <MenuIcon></MenuIcon>

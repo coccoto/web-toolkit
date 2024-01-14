@@ -1,10 +1,18 @@
 'use client'
 
+// @mui/material
+import CssBaseline from "@mui/material/CssBaseline"
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import CssBaseline from "@mui/material/CssBaseline"
+import { grey } from '@mui/material/colors';
 
-const customTheme = createTheme({});
+const customTheme = createTheme({
+    palette: {
+        primary: {
+            main: grey[100],
+        },
+    },
+})
 
 const Theme = ({ children }: { children: React.ReactNode }) => {
     
