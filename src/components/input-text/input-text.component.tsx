@@ -17,7 +17,6 @@ export default (props: Props) => {
             <div className={styles['label']}>{props.label}</div>
             <TextField 
                 fullWidth
-                color='info'
                 placeholder={props.placeholder}
                 defaultValue={props.defaultValue}>
             </TextField>

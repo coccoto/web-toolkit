@@ -3,19 +3,19 @@
 // react
 import React from 'react'
 // theme
-import ThemeObject from '@/app/theme'
+import Theme from '@/app/theme'
 // components
 import Header from '@/components/header/header.component'
 import Footer from '@/components/footer/footer.component'
+import Toolbar from '@mui/material/Toolbar'
 import { DrawerMenu, Handler, drawerMenuWidth } from '@/components/drawer-menu/drawer-menu.component'
 // styles
 import styles from '@/components/main/main.module.sass'
-// @mui/material
-import Toolbar from '@mui/material/Toolbar'
 
 export default ({ children }: { children: React.ReactNode }) => {
 
     const refDrawerMenu = React.useRef<Handler>(null)
+
     const [isOpenDrawerMenu, setIsOpenDrawerMenu] = React.useState(false)
 
     const handleClickMenuButton = () => {
@@ -26,19 +26,18 @@ export default ({ children }: { children: React.ReactNode }) => {
     }
 
     return (
-        <ThemeObject>
-            <Header
-                handleClickMenuButton={handleClickMenuButton}
-            ></Header>
-            <DrawerMenu
-                isOpenDrawerMenu={isOpenDrawerMenu}
-                setIsOpenDrawerMenu={setIsOpenDrawerMenu}
-                ref={refDrawerMenu}></DrawerMenu>
-            <div style={{ marginLeft: isOpenDrawerMenu ? drawerMenuWidth : 0 }}>
+        <Theme>
+            <Header handleClickMenuButton={handleClickMenuButton}></Header>
+            <div>
                 <Toolbar></Toolbar>
                 <div className={styles['wrapper-application']}>{children}</div>
                 <Footer></Footer>
             </div>
-        </ThemeObject>
+            <DrawerMenu
+                isOpenDrawerMenu={isOpenDrawerMenu}
+                setIsOpenDrawerMenu={setIsOpenDrawerMenu}
+                ref={refDrawerMenu}
+            ></DrawerMenu>
+        </Theme>
     )
 }

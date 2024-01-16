@@ -1,5 +1,3 @@
-'use client'
-
 // react
 import React from 'react'
 // @mui/material
@@ -13,22 +11,26 @@ type Props = {
     isOpenDrawerMenu: boolean,
     setIsOpenDrawerMenu: (isOpenDrawerMenu: boolean) => void,
 }
-
 export type Handler = {
     setIsOpenDrawerMenu: () => void,
 }
+
 export const drawerMenuWidth: string = '15rem'
 
 export const DrawerMenu = React.forwardRef((props: Props, ref): JSX.Element  => {
 
     React.useImperativeHandle(ref, () => ({
         setIsOpenDrawerMenu: () => {
-            props.setIsOpenDrawerMenu(! props.isOpenDrawerMenu)
+            toggleDrawerMenu()
         }
     }))
 
+    const toggleDrawerMenu = () => {
+        props.setIsOpenDrawerMenu(! props.isOpenDrawerMenu)
+    }
+
     return (
-        <Drawer open={props.isOpenDrawerMenu} variant='persistent' anchor='left' sx={{ width: drawerMenuWidth, ['& .MuiDrawer-paper']: { width: drawerMenuWidth }}}>
+        <Drawer open={props.isOpenDrawerMenu} onClose={toggleDrawerMenu} sx={{'& .MuiDrawer-paper': { width: drawerMenuWidth }}}>
             <Toolbar></Toolbar>
             <List>
                 <ListItem>TEST</ListItem>
