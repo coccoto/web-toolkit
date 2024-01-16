@@ -22,7 +22,7 @@ export default (props: Props) => {
     return (
         <AppBar elevation={0} sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
             <Toolbar className={styles['container']}>
-                <IconButton edge='start' color='inherit' onClick={handleClickMenuButton}>
+                <IconButton className={styles['menu-icon']} edge='start' color='inherit' onClick={handleClickMenuButton}>
                     <MenuIcon></MenuIcon>
                 </IconButton>
                 <Link href='/' underline='none' className={styles['title']}>Web Toolkit</Link>

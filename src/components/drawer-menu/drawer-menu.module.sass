@@ -1,0 +1,26 @@
+@use '@/assets/styles/utils/mixins'
+@use '@/assets/styles/utils/colors'
+
+.container
+    @include mixins.media()
+        border-right: 1px solid colors.$border-color
+
+.wrapper-mobile
+    display: block
+
+    @include mixins.media()
+        display: none
+
+.wrapper-pc
+    display: none
+
+    @include mixins.media()
+        display: block
+
+.container-menu
+    display: flex
+    flex-direction: column
+    gap: 0.5rem
+
+.menu-header
+    font-size: 1.25rem

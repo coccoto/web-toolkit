@@ -1,8 +1,18 @@
 @use '@/assets/styles/utils/mixins'
 
+
+.wrapper-main
+    height: 100%
+
+    @include mixins.media()
+        display: flex
+
+.wrapper-content
+    @include mixins.media()
+        flex: 1
+
 .wrapper-application
-    padding: 2rem 1rem
+    padding: 2rem
 
     @include mixins.media()
         padding: 2rem 3rem
-

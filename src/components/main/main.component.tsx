@@ -28,16 +28,18 @@ export default ({ children }: { children: React.ReactNode }) => {
     return (
         <Theme>
             <Header handleClickMenuButton={handleClickMenuButton}></Header>
-            <div>
-                <Toolbar></Toolbar>
-                <div className={styles['wrapper-application']}>{children}</div>
-                <Footer></Footer>
+            <div className={styles['wrapper-main']}>
+                <DrawerMenu
+                    isOpenDrawerMenu={isOpenDrawerMenu}
+                    setIsOpenDrawerMenu={setIsOpenDrawerMenu}
+                    ref={refDrawerMenu}
+                ></DrawerMenu>
+                <div className={styles['wrapper-content']}>
+                    <Toolbar></Toolbar>
+                    <div className={styles['wrapper-application']}>{children}</div>
+                    <Footer></Footer>
+                </div>
             </div>
-            <DrawerMenu
-                isOpenDrawerMenu={isOpenDrawerMenu}
-                setIsOpenDrawerMenu={setIsOpenDrawerMenu}
-                ref={refDrawerMenu}
-            ></DrawerMenu>
         </Theme>
     )
 }

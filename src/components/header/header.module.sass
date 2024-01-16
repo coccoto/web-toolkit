@@ -1,3 +1,5 @@
+@use '@/assets/styles/utils/mixins'
+
 .container
     display: flex
     gap: 0.5rem
@@ -6,3 +8,7 @@
     font-weight: 500
     font-size: 1.75rem
     color: black
+
+.menu-icon
+    @include mixins.media()
+        display: none
