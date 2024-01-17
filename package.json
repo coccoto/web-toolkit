@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev-server": "next dev -p 3200",
     "build": "next build",
-    "start": "next start",
+    "release": "run-s release:clean build",
+    "release:clean": "rimraf dist",
+    "start": "next start -p 3200",
     "lint": "next lint",
     "test": "tsc --init"
   },
@@ -21,8 +23,10 @@
     "@mui/material-nextjs": "^5.15.3",
     "mysql2": "^3.7.0",
     "next": "^14.0.4",
+    "npm-run-all": "^4.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rimraf": "^5.0.5",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^4.7.1"
   },
