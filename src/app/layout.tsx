@@ -8,7 +8,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html>
             <head>
+                <meta charSet='utf-8'></meta>
+                <meta name='viewport' content='width=device-width, initial-scale=1'></meta>
                 <title>Web Toolkit</title>
+                <meta name='description' content='Web Toolkit は、開発者のためのブラウザツールセットです。'></meta>
+                <meta property='og:type' content='website'></meta>
+                <meta property='og:url' content='https://webtoolkit.coccoto.com/'></meta>
+                <meta property='og:title' content='Web Toolkit'></meta>
+                <meta property='og:description' content='Web Toolkit は、開発者のためのブラウザツールセットです。'></meta>
+                {/* <meta property='og:image' content='512x512.png'></meta> */}
+                {/* Twitter */}
+                <meta name='twitter:card' content='summary'></meta>
+                <meta name='twitter:creator' content='@coccoto'></meta>
+                {/* Favicon */}
+                {/* <link rel='icon' type='image/png' href='32x32.png'></link> */}
+                {/* <link rel='apple-touch-icon' href='256x256.png'></link> */}
                 {/* Google Fonts */}
                 <link rel='preconnect' href='https://fonts.googleapis.com'></link>
                 <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous'></link>
