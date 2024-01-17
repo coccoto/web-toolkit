@@ -1,4 +1,5 @@
 export type ViewMenuType = {
+    id: number,
     system_name: string,
     screen_name: string,
     origin: string,

@@ -1,5 +1,9 @@
 // react
 import React from 'react'
+// hooks
+import useFetch from '@/hooks/useFetch'
+// types
+import { ViewMenuType } from '@/types/ViewMenuType'
 // styles
 import styles from '@/components/drawer-menu/drawer-menu.module.sass'
 // @mui/material
@@ -23,55 +27,38 @@ export const drawerMenuWidth: string = '15rem'
 
 export const DrawerMenu = React.forwardRef((props: Props, ref): JSX.Element  => {
 
+    const api = useFetch('/api/get/menu', { method: 'post' })
+
     React.useImperativeHandle(ref, () => ({
         setIsOpenDrawerMenu: () => {
             toggleDrawerMenu()
         }
     }))
 
+    React.useEffect(() => {
+        if (api.data) {
+            const viewMenu: ViewMenuType[] = api.data.result as ViewMenuType[]
+            setMenuData(viewMenu)
+        }
+    }, [api.data])
+
+    const [menuData, setMenuData] = React.useState<ViewMenuType[]>([]);
+
     const toggleDrawerMenu = () => {
         props.setIsOpenDrawerMenu(! props.isOpenDrawerMenu)
     }
 
     const elemMenu = () => {
-
-        const sample1 = [
-            {
-                system_name: 'system_name',
-                screen_name: 'screen_name',
-                origin: 'origin',
-                path: 'path',
-            },
-            {
-                system_name: 'system_name',
-                screen_name: 'screen_name',
-                origin: 'origin',
-                path: 'path',
-            }
-        ]
-
-        const sample2 = [
-            {
-                system_name: 'system_name',
-                screen_name: 'screen_name',
-                origin: 'origin',
-                path: 'path',
-            },
-            {
-                system_name: 'system_name',
-                screen_name: 'screen_name',
-                origin: 'origin',
-                path: 'path',
-            }
-        ]
+        const section1Data = menuData.filter((item) => item.section_no === 1);
+        const section2Data = menuData.filter((item) => item.section_no === 2);
 
         return (
             <List className={styles['container-menu']}>
                 <div>
                     <ListSubheader color={'inherit'} className={styles['menu-header']}>Tools</ListSubheader>
                     <Divider></Divider>
-                    {sample1.map((item) => (
-                        <ListItem disablePadding key={item.path}>
+                    {section1Data.map((item) => (
+                        <ListItem disablePadding key={item.id}>
                             <ListItemButton className={styles['menu-item']} href={item.path}>
                                 {item.screen_name}
                             </ListItemButton>
@@ -81,8 +68,8 @@ export const DrawerMenu = React.forwardRef((props: Props, ref): JSX.Element  => 
                 <div>
                     <ListSubheader color={'inherit'} className={styles['menu-header']}>Others</ListSubheader>
                     <Divider></Divider>
-                    {sample2.map((item) => (
-                        <ListItem disablePadding key={item.origin}>
+                    {section2Data.map((item) => (
+                        <ListItem disablePadding key={item.id}>
                             <ListItemButton className={styles['menu-item']} href={item.origin}>
                                 {item.system_name}
                             </ListItemButton>

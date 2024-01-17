@@ -16,18 +16,18 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
         apiResponse.result = await menuService.getViewMenu()
         apiResponse.code = 200
-        apiResponse.message = 'OK'
+        apiResponse.message = 'success'
 
-        return NextResponse.json({ apiResponse })
+        return NextResponse.json({ ...apiResponse })
 
     } catch (error: unknown) {
         LoggerManager.error('An exception occurred. Error: ' + (error as Error).message);
 
         apiResponse.result = {}
         apiResponse.code = 500
-        apiResponse.message = 'ERROR'
+        apiResponse.message = 'error'
 
-        return NextResponse.json({ apiResponse })
+        return NextResponse.json({ ...apiResponse })
 
     } finally {
         dbManager.disconnect()
