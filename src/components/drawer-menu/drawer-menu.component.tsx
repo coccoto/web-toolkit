@@ -49,6 +49,9 @@ export const DrawerMenu = React.forwardRef((props: Props, ref): JSX.Element  => 
     }
 
     const elemMenu = () => {
+        if (menuData === null || menuData === undefined) {
+            return
+        }
         const section1Data = menuData.filter((item) => item.section_no === 1);
         const section2Data = menuData.filter((item) => item.section_no === 2);
 
