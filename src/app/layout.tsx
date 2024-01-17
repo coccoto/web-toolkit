@@ -28,7 +28,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous'></link>
                 <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500&display=swap'></link>
             </head>
-            <body><Main children={children}></Main></body>
+            <body>
+                <Main children={children}></Main>
+            </body>
         </html>
     )
 }
