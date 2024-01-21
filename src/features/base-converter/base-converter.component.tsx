@@ -12,6 +12,7 @@ type BaseConverterFormType = {
     decimal: string,
     hexadecimal: string,
 }
+
 const initBaseConverterFormType = (): BaseConverterFormType => {
     return {
         binary: '',
@@ -45,13 +46,13 @@ export default () => {
          }
 
         if (refBaseConverterForm.binary.current === null || refBaseConverterForm.octal.current === null || refBaseConverterForm.decimal.current === null || refBaseConverterForm.hexadecimal.current === null) {
-            throw new Error()
+            throw new Error('An error has occurred. refBaseConverterForm is null.')
         }
+
         refBaseConverterForm.binary.current.value = baseConverterForm.binary
         refBaseConverterForm.octal.current.value = baseConverterForm.octal
         refBaseConverterForm.decimal.current.value = baseConverterForm.decimal
         refBaseConverterForm.hexadecimal.current.value = baseConverterForm.hexadecimal
-        return
     }
 
     return (

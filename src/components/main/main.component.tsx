@@ -1,8 +1,6 @@
 'use client'
 // react
 import React from 'react'
-// theme
-import Theme from '@/app/theme'
 // components
 import Header from '@/components/header/header.component'
 import Footer from '@/components/footer/footer.component'
@@ -26,7 +24,7 @@ export default ({ children }: { children: React.ReactNode }) => {
     }
 
     return (
-        <Theme>
+        <div>
             <Header handleClickMenuButton={handleClickMenuButton}></Header>
             <div className={styles['wrapper-main']}>
                 <DrawerMenu
@@ -40,6 +38,6 @@ export default ({ children }: { children: React.ReactNode }) => {
                     <Footer></Footer>
                 </div>
             </div>
-        </Theme>
+        </div>
     )
 }
