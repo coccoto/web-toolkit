@@ -1,12 +1,13 @@
-export type ApiResponseType = {
+export type ApiResponseType<T = {}> = {
     message: string,
     code: number,
-    result: {}
+    result: T,
 }
-export const initApiResponseType = (): ApiResponseType => {
+export const initApiResponseType = <T = {}>(): ApiResponseType<T> => {
     return {
         message: '',
         code: 0,
-        result: {},
+        result: {} as T,
     }
-}
+};
+

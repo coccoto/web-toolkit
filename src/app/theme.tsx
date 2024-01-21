@@ -1,10 +1,9 @@
 'use client'
-
-// @mui/material
+// @mui
 import CssBaseline from "@mui/material/CssBaseline"
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
-import { grey } from '@mui/material/colors';
+import { grey } from '@mui/material/colors'
 
 const customTheme = createTheme({
     palette: {

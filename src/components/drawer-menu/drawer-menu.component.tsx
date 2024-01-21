@@ -1,12 +1,13 @@
 // react
 import React from 'react'
-// hooks
-import useFetch from '@/hooks/useFetch'
 // types
+import { ApiResponseType } from '@/types/ApiResponseType'
 import { ViewMenuType } from '@/types/ViewMenuType'
+// scripts
+import fetchApi from '@/assets/scripts/fetchApi'
 // styles
 import styles from '@/components/drawer-menu/drawer-menu.module.sass'
-// @mui/material
+// @mui
 import Drawer from '@mui/material/Drawer'
 import Toolbar from '@mui/material/Toolbar'
 import List from '@mui/material/List'
@@ -27,8 +28,6 @@ export const drawerMenuWidth: string = '15rem'
 
 export const DrawerMenu = React.forwardRef((props: Props, ref): JSX.Element  => {
 
-    const api = useFetch('/api/get/menu', { method: 'post' })
-
     React.useImperativeHandle(ref, () => ({
         setIsOpenDrawerMenu: () => {
             toggleDrawerMenu()
@@ -36,11 +35,13 @@ export const DrawerMenu = React.forwardRef((props: Props, ref): JSX.Element  => 
     }))
 
     React.useEffect(() => {
-        if (api.data) {
-            const viewMenu: ViewMenuType[] = api.data.result as ViewMenuType[]
-            setMenuData(viewMenu)
+        const postRequest = async () => {
+            const response = await fetchApi<ApiResponseType<ViewMenuType[]>>('/api/get/menu-list', { method: 'post' })
+            const viewMenu: ViewMenuType[] = response.result as ViewMenuType[]
+            await setMenuData(viewMenu)
         }
-    }, [api.data])
+        postRequest()
+    }, [])
 
     const [menuData, setMenuData] = React.useState<ViewMenuType[]>([]);
 

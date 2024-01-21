@@ -1,5 +1,4 @@
 'use client'
-
 // react
 import React from 'react'
 // theme
@@ -7,10 +6,11 @@ import Theme from '@/app/theme'
 // components
 import Header from '@/components/header/header.component'
 import Footer from '@/components/footer/footer.component'
-import Toolbar from '@mui/material/Toolbar'
-import { DrawerMenu, Handler, drawerMenuWidth } from '@/components/drawer-menu/drawer-menu.component'
+import { DrawerMenu, Handler } from '@/components/drawer-menu/drawer-menu.component'
 // styles
 import styles from '@/components/main/main.module.sass'
+// @mui
+import Toolbar from '@mui/material/Toolbar'
 
 export default ({ children }: { children: React.ReactNode }) => {
 

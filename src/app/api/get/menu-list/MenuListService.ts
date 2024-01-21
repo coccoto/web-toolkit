@@ -1,4 +1,6 @@
-import type DBManager from "@/core/DBManager"
+// @coccoto
+import type { DBManager } from '@coccoto/node-dbmanager'
+// types
 import { ViewMenuType } from '@/types/ViewMenuType'
 
 export default class {
