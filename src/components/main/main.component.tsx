@@ -24,7 +24,7 @@ export default ({ children }: { children: React.ReactNode }) => {
     }
 
     return (
-        <div>
+        <div className={styles['container']}>
             <Header handleClickMenuButton={handleClickMenuButton}></Header>
             <div className={styles['wrapper-main']}>
                 <DrawerMenu

@@ -9,5 +9,5 @@ export const initApiResponseType = <T = {}>(): ApiResponseType<T> => {
         code: 0,
         result: {} as T,
     }
-};
+}
 
