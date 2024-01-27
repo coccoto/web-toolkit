@@ -8,10 +8,6 @@ import MenuListService from '@/app/api/get/menu-list/MenuListService'
 // types
 import { ApiResponseType, initApiResponseType } from '@/types/ApiResponseType'
 import { ViewMenuType } from '@/types/ViewMenuType'
-// lib
-import dotenv from 'dotenv'
-
-dotenv.config()
 
 const dbManager = new DBManager()
 const apiResponse: ApiResponseType<ViewMenuType[]> = initApiResponseType<ViewMenuType[]>()

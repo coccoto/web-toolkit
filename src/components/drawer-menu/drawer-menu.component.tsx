@@ -24,7 +24,7 @@ export type Handler = {
     setIsOpenDrawerMenu: () => void,
 }
 
-export const drawerMenuWidth: string = '15rem'
+const drawerMenuWidth: string = '15rem'
 
 export const DrawerMenu = React.forwardRef((props: Props, ref): JSX.Element  => {
 
