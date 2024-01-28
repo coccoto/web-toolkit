@@ -1,8 +1,5 @@
-// components
-import Main from '@/components/main/main.component'
 // providers
 import ThemeProvider from '@/providers/themeProvider'
-import QueryClientProvider from '@/providers/queryClientProvider'
 // styles
 import '@/assets/styles/base/index.sass'
 
@@ -32,11 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500&display=swap'></link>
             </head>
             <body>
-                <ThemeProvider>
-                    <QueryClientProvider>
-                        <Main children={children}></Main>
-                    </QueryClientProvider>
-                </ThemeProvider>
+                <ThemeProvider>{children}</ThemeProvider>
             </body>
         </html>
     )

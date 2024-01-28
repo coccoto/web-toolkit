@@ -1,19 +1,26 @@
 'use client'
+
 // react
 import React from 'react'
 // components
 import Header from '@/components/header/header.component'
 import Footer from '@/components/footer/footer.component'
 import { DrawerMenu, Handler } from '@/components/drawer-menu/drawer-menu.component'
+// types
+import { ViewMenuType } from '@/types/ViewMenuType'
 // styles
 import styles from '@/components/main/main.module.sass'
 // @mui
 import Toolbar from '@mui/material/Toolbar'
 
-export default ({ children }: { children: React.ReactNode }) => {
+type Props = {
+    children: React.ReactNode,
+    menuData: ViewMenuType[],
+}
+
+export default (props: Props) => {
 
     const refDrawerMenu = React.useRef<Handler>(null)
-
     const [isOpenDrawerMenu, setIsOpenDrawerMenu] = React.useState(false)
 
     const handleClickMenuButton = () => {
@@ -29,12 +36,13 @@ export default ({ children }: { children: React.ReactNode }) => {
             <div className={styles['wrapper-main']}>
                 <DrawerMenu
                     isOpenDrawerMenu={isOpenDrawerMenu}
+                    menuData={props.menuData}
                     setIsOpenDrawerMenu={setIsOpenDrawerMenu}
                     ref={refDrawerMenu}
                 ></DrawerMenu>
                 <div className={styles['wrapper-content']}>
                     <Toolbar></Toolbar>
-                    <div className={styles['wrapper-application']}>{children}</div>
+                    <div className={styles['wrapper-application']}>{props.children}</div>
                     <Footer></Footer>
                 </div>
             </div>

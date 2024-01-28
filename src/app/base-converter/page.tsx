@@ -1,8 +1,19 @@
+// components
+import Main from '@/components/main/main.component'
+// types
+import { ViewMenuType } from '@/types/ViewMenuType'
+// scripts
+import fetchMenuData from '@/assets/scripts/fetchMenuData'
 // features
 import BaseConverter from '@/features/base-converter/base-converter.component'
 
-export default function Page() {
+export default async function Page() {
+  const menuData: ViewMenuType[] = await fetchMenuData()
+
   return (
-      <BaseConverter></BaseConverter>
+      <Main
+          children={<BaseConverter></BaseConverter>}
+          menuData={menuData}
+      ></Main>
   )
 }

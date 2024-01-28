@@ -1,4 +1,5 @@
 'use client'
+
 // react
 import React from 'react'
 // styles
@@ -19,11 +20,11 @@ export type Output = {
 }
 
 export const InputText = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputElement>): JSX.Element  => {
-
     const [inputValue, setInputValue] = React.useState('')
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const value = event.target.value
+
         setInputValue(value)
         const output: Output = {
             componentName: props.componentName,
@@ -38,9 +39,9 @@ export const InputText = React.forwardRef((props: Props, ref: React.ForwardedRef
             <TextField 
                 inputRef={ref}
                 value={inputValue}
-                fullWidth
-                placeholder={props.placeholder}
                 onInput={handleInput}
+                placeholder={props.placeholder}
+                fullWidth
                 >
             </TextField>
         </div>
