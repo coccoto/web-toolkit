@@ -5,6 +5,8 @@ import { ViewMenuType } from '@/types/ViewMenuType'
 // scripts
 import fetchMenuData from '@/utils/fetchMenuData'
 
+export const dynamic = 'force-dynamic'
+
 export default async () => {
 
     const menuData: ViewMenuType[] = await fetchMenuData()

@@ -7,6 +7,8 @@ import fetchMenuData from '@/utils/fetchMenuData'
 // features
 import BaseConverter from '@/features/base-converter/base-converter.component'
 
+export const dynamic = 'force-dynamic'
+
 export default async () => {
 
     const menuData: ViewMenuType[] = await fetchMenuData()
