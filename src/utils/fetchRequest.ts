@@ -1,8 +1,5 @@
 export default async <T>(endpoint: string, options: RequestInit): Promise<T> => {
     try {
-        console.log('fetchRequest')
-        console.log(process.env['HOST'] + endpoint)
-
         const response = await fetch(process.env['HOST'] + endpoint, options)
         if (! response.ok) {
             throw new Error(`HTTP Error. Status: ${response.status}`)
