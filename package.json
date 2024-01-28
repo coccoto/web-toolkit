@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-server": "next dev -p 18000",
+    "dev-server": "next dev -p 18010",
     "build": "next build",
     "release": "run-s release:clean build",
     "release:clean": "rimraf dist",
