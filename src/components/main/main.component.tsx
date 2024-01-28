@@ -20,9 +20,11 @@ type Props = {
 
 export default (props: Props) => {
 
+    // DrawerMenu
     const refDrawerMenu = React.useRef<Handler>(null)
     const [isOpenDrawerMenu, setIsOpenDrawerMenu] = React.useState(false)
 
+    // Header MenuButton
     const handleClickMenuButton = () => {
         if (refDrawerMenu.current === null) {
             throw new Error()

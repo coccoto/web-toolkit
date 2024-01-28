@@ -1,4 +1,5 @@
 'use client'
+
 // @mui
 import CssBaseline from "@mui/material/CssBaseline"
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter'
@@ -17,7 +18,6 @@ const customTheme = createTheme({
 })
 
 const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-    
     return (
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
             <ReactThemeProvider theme={customTheme}>

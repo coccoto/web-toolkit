@@ -1,4 +1,5 @@
 'use client'
+
 // react
 import React from 'react'
 // components
@@ -12,7 +13,6 @@ type BaseConverterFormType = {
     decimal: string,
     hexadecimal: string,
 }
-
 const initBaseConverterFormType = (): BaseConverterFormType => {
     return {
         binary: '',
@@ -33,17 +33,14 @@ export default () => {
 
     const baseConvert = (output: Output): void => {
         const decimalValue: number = parseInt(output.inputValue, Number(output.componentName))
-
         let baseConverterForm: BaseConverterFormType = initBaseConverterFormType()
 
         if (! isNaN(decimalValue)) {
-            baseConverterForm = {
-                binary: decimalValue.toString(2),
-                octal: decimalValue.toString(8),
-                decimal: decimalValue.toString(10),
-                hexadecimal: decimalValue.toString(16).toUpperCase(),
-            }
-         }
+            baseConverterForm.binary = decimalValue.toString(2)
+            baseConverterForm.octal = decimalValue.toString(8)
+            baseConverterForm.decimal = decimalValue.toString(10)
+            baseConverterForm.hexadecimal = decimalValue.toString(16).toUpperCase()
+        }
 
         if (refBaseConverterForm.binary.current === null || refBaseConverterForm.octal.current === null || refBaseConverterForm.decimal.current === null || refBaseConverterForm.hexadecimal.current === null) {
             throw new Error('An error has occurred. refBaseConverterForm is null.')

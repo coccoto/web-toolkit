@@ -3,7 +3,7 @@ import Main from '@/components/main/main.component'
 // types
 import { ViewMenuType } from '@/types/ViewMenuType'
 // scripts
-import fetchMenuData from '@/assets/scripts/fetchMenuData'
+import fetchMenuData from '@/utils/fetchMenuData'
 // features
 import BaseConverter from '@/features/base-converter/base-converter.component'
 

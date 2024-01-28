@@ -10,4 +10,3 @@ export const initApiResponseType = <T = {}>(): ApiResponseType<T> => {
         result: {} as T,
     }
 }
-

@@ -20,8 +20,11 @@ export type Output = {
 }
 
 export const InputText = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputElement>): JSX.Element  => {
+
+    // TextField
     const [inputValue, setInputValue] = React.useState('')
 
+    // onInput
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const value = event.target.value
 

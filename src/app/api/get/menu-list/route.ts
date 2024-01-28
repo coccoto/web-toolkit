@@ -5,7 +5,7 @@ import type { NextRequest } from 'next/server'
 import { DBManager } from '@coccoto/node-dbmanager'
 import { logger } from '@coccoto/node-logmanager'
 // service
-import MenuListService from '@/app/api/get/menu-list/MenuListService'
+import MenuListService from '@/services/get/menu-list/MenuListService'
 // types
 import { ApiResponseType, initApiResponseType } from '@/types/ApiResponseType'
 import { ViewMenuType } from '@/types/ViewMenuType'

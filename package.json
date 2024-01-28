@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-server": "next dev -p 3200",
+    "dev-server": "next dev -p 18000",
     "build": "next build",
     "release": "run-s release:clean build",
     "release:clean": "rimraf dist",
-    "start": "next start -p 3200",
+    "start": "next start -p 18010",
     "lint": "next lint",
     "test": "tsc --init"
   },

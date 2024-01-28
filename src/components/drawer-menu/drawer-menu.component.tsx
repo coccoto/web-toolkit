@@ -27,24 +27,25 @@ const drawerMenuWidth: string = '15rem'
 
 export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRef<Handler>): JSX.Element  => {
 
+    // parent Element
     React.useImperativeHandle(ref, () => ({
         setIsOpenDrawerMenu: () => {
             toggleDrawerMenu()
         }
     }))
 
+    // Drawer Control
     const toggleDrawerMenu = () => {
         props.setIsOpenDrawerMenu(! props.isOpenDrawerMenu)
     }
 
+    // create Element
     const elemMenu = () => {
-        const menuData = props.menuData
-
-        if (menuData === null || menuData === undefined) {
+        if (props.menuData === null || props.menuData === undefined) {
             return
         }
-        const section1Data = menuData.filter((item) => item.section_no === 1);
-        const section2Data = menuData.filter((item) => item.section_no === 2);
+        const section1Data = props.menuData.filter((item) => item.section_no === 1);
+        const section2Data = props.menuData.filter((item) => item.section_no === 2);
 
         return (
             <List className={styles['container-menu']}>
