@@ -5,7 +5,8 @@ import { ViewMenuType } from '@/types/ViewMenuType'
 // scripts
 import fetchMenuData from '@/utils/fetchMenuData'
 
-export default async function Page() {
+export default async () => {
+
     const menuData: ViewMenuType[] = await fetchMenuData()
 
     return (
