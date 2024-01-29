@@ -3,53 +3,78 @@
 // react
 import React from 'react'
 // components
-import { InputText, Output } from '@/components/input-text/input-text.component'
+import InputText from '@/components/input-text/input-text.component'
 // styles
 import styles from '@/features/base-converter/base-converter.module.sass'
 
-type BaseConverterFormType = {
-    binary: string,
-    octal: string,
-    decimal: string,
-    hexadecimal: string,
-}
-const initBaseConverterFormType = (): BaseConverterFormType => {
-    return {
-        binary: '',
-        octal: '',
-        decimal: '',
-        hexadecimal: '',
+type InputDataListType = {
+    [key in string]: {
+        componentId: string,
+        inputValue: string,
+        label: string,
+        placeholder: string,
+        isError: boolean,
+        errorMessage: string,
+        system: { radix: number, pattern: RegExp },
     }
 }
 
 export default () => {
 
-    const refBaseConverterForm = {
-        binary: React.useRef<HTMLInputElement>(null),
-        octal: React.useRef<HTMLInputElement>(null),
-        decimal: React.useRef<HTMLInputElement>(null),
-        hexadecimal: React.useRef<HTMLInputElement>(null),
-    }
+    const [inputDataList, setInputDataList] = React.useState<InputDataListType>({
+        binary: {
+            componentId: 'binary', inputValue: '', label: '2進数', placeholder: '10100000', isError: false, errorMessage: '入力された値が正しくありません。2進数の形式で入力してください。',
+            system: { radix: 2, pattern: /^[01]+$/ }
+        },
+        octal: {
+            componentId: 'octal', inputValue: '', label: '8進数', placeholder: '240', isError: false, errorMessage: '入力された値が正しくありません。8進数の形式で入力してください。',
+            system: { radix: 8, pattern: /^[0-7]+$/ }
+        },
+        decimal: {
+            componentId: 'decimal', inputValue: '', label: '10進数', placeholder: '160', isError: false, errorMessage: '入力された値が正しくありません。10進数の形式で入力してください。',
+            system: { radix: 10, pattern: /^\d+$/ }
+        },
+        hexadecimal: {
+            componentId: 'hexadecimal', inputValue: '', label: '16進数', placeholder: 'A0', isError: false, errorMessage: '入力された値が正しくありません。16進数の形式で入力してください。',
+            system: { radix: 16, pattern: /^[0-9A-Fa-f]+$/ }
+        },
+    })
 
-    const baseConvert = (output: Output): void => {
-        const decimalValue: number = parseInt(output.inputValue, Number(output.componentName))
-        let baseConverterForm: BaseConverterFormType = initBaseConverterFormType()
+    const handleInput = (event: React.ChangeEvent<HTMLInputElement>, baseType: string): void => {
+        const inputValue = event.target.value
+        const decimalValue: number = parseInt(inputValue, inputDataList[baseType].system.radix)
 
-        if (! isNaN(decimalValue)) {
-            baseConverterForm.binary = decimalValue.toString(2)
-            baseConverterForm.octal = decimalValue.toString(8)
-            baseConverterForm.decimal = decimalValue.toString(10)
-            baseConverterForm.hexadecimal = decimalValue.toString(16).toUpperCase()
+        if (inputValue === '') {
+            setInputDataList((prevInputDataList) => {
+                const tempInputDataList = { ...prevInputDataList }
+                Object.keys(tempInputDataList).forEach((baseType) => {
+                    tempInputDataList[baseType].inputValue = ''
+                    tempInputDataList[baseType].isError = false
+                })
+                return tempInputDataList
+            })
+        } else {
+            const isError = ! inputDataList[baseType].system.pattern.test(inputValue) || isNaN(decimalValue)
+            if(isError) {
+                setInputDataList((prevInputDataList) => ({
+                    ...prevInputDataList,
+                    [baseType]: {
+                        ...prevInputDataList[baseType],
+                        inputValue: inputValue,
+                        isError: true,
+                    }
+                }))
+            } else {
+                setInputDataList((prevInputDataList) => {
+                    const tempInputDataList = { ...prevInputDataList }
+                    Object.keys(tempInputDataList).forEach((baseType) => {
+                        tempInputDataList[baseType].inputValue = decimalValue.toString(tempInputDataList[baseType].system.radix)
+                        tempInputDataList[baseType].isError = false
+                    })
+                    return tempInputDataList
+                })
+            }
         }
-
-        if (refBaseConverterForm.binary.current === null || refBaseConverterForm.octal.current === null || refBaseConverterForm.decimal.current === null || refBaseConverterForm.hexadecimal.current === null) {
-            throw new Error('An error has occurred. refBaseConverterForm is null.')
-        }
-
-        refBaseConverterForm.binary.current.value = baseConverterForm.binary
-        refBaseConverterForm.octal.current.value = baseConverterForm.octal
-        refBaseConverterForm.decimal.current.value = baseConverterForm.decimal
-        refBaseConverterForm.hexadecimal.current.value = baseConverterForm.hexadecimal
     }
 
     return (
@@ -58,34 +83,21 @@ export default () => {
                 <h2>進数変換</h2>
             </div>
             <div className={styles['wrapper-main']}>
-                <InputText
-                    componentName='2'
-                    label='2進数'
-                    placeholder='10100000'
-                    onInput={baseConvert}
-                    ref={refBaseConverterForm.binary}
-                ></InputText>
-                <InputText
-                    componentName='8'
-                    label='8進数'
-                    placeholder='240'
-                    onInput={baseConvert}
-                    ref={refBaseConverterForm.octal}
-                ></InputText>
-                <InputText
-                    componentName='10'
-                    label='10進数'
-                    placeholder='160'
-                    onInput={baseConvert}
-                    ref={refBaseConverterForm.decimal}
-                ></InputText>
-                <InputText
-                    componentName='16'
-                    label='16進数'
-                    placeholder='A0'
-                    onInput={baseConvert}
-                    ref={refBaseConverterForm.hexadecimal}
-                ></InputText>
+                {Object.keys(inputDataList).map((baseType) => {
+                    const inputData = inputDataList[baseType]
+                    return (
+                        <InputText
+                            key={inputData.componentId}
+                            componentId={inputData.componentId}
+                            inputValue={inputData.inputValue}
+                            label={inputData.label}
+                            placeholder={inputData.placeholder}
+                            isError={inputData.isError}
+                            errorMessage={inputData.errorMessage}
+                            handleInput={handleInput}
+                        ></InputText>
+                    )
+                })}
             </div>
         </div>
     )
