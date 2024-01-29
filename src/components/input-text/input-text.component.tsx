@@ -9,11 +9,11 @@ import TextField from '@mui/material/TextField'
 
 type Props = {
     componentId: string,
-    inputValue: string,
     label: string,
     placeholder: string,
-    isError: boolean,
     errorMessage: string,
+    inputValue: string,
+    isError: boolean,
     handleInput: (event: React.ChangeEvent<HTMLInputElement>, componentId: string) => void,
 }
 
