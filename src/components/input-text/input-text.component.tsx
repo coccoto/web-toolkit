@@ -11,13 +11,24 @@ type Props = {
     componentId: string,
     label: string,
     placeholder: string,
+    helperMessage: string,
     errorMessage: string,
     inputValue: string,
     isError: boolean,
+    handleClick: (event: React.MouseEvent<HTMLInputElement>, componentId: string) => void,
+    handleBlur: (event: React.FocusEvent<HTMLInputElement>, componentId: string) => void,
     handleInput: (event: React.ChangeEvent<HTMLInputElement>, componentId: string) => void,
 }
 
 export default (props: Props): JSX.Element  => {
+
+    const handleClick = (event: React.MouseEvent<HTMLInputElement>): void => {
+        props.handleClick(event, props.componentId);
+    }
+
+    const handleBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
+        props.handleBlur(event, props.componentId);
+    }
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
         props.handleInput(event, props.componentId)
@@ -30,8 +41,10 @@ export default (props: Props): JSX.Element  => {
                 value={props.inputValue}
                 placeholder={props.placeholder}
                 error={props.isError}
+                onClick={handleClick}
+                onBlur={handleBlur}
                 onInput={handleInput}
-                helperText={props.isError ? props.errorMessage : ' '}
+                helperText={props.isError ? props.errorMessage : props.helperMessage}
                 fullWidth
                 color={'info'}
                 className={styles['text-field']}
