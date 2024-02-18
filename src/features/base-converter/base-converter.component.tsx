@@ -19,42 +19,66 @@ export default () => {
     const [inputDataList, setInputDataList] = React.useState<InputDataListType>({
         binary: {
             inputConfig: { 
-                componentId: 'binary', type: 'number', label: '2 進数', placeholder: '10100000',
-                helperMessage: '0 桁', errorMessage: '入力された値が正しくありません。2進数の形式で入力してください。',
-                inputValue: '', isError: false,
+                componentId: 'binary',
+                type: 'number',
+                label: '2 進数',
+                placeholder: '10100000',
+                helperMessage: '0 桁',
+                errorMessage: '入力された値が正しくありません。2進数の形式で入力してください。',
+                inputValue: '',
+                isError: false,
             },
             params: {
-                radix: 2, pattern: /^[01]+$/
+                radix: 2,
+                pattern: /^[01]+$/,
             }
         },
         octal: {
             inputConfig: {
-                componentId: 'octal', type: 'number', label: '8 進数', placeholder: '240',
-                helperMessage: '0 桁', errorMessage: '入力された値が正しくありません。8進数の形式で入力してください。',
-                inputValue: '', isError: false,
+                componentId: 'octal',
+                type: 'number',
+                label: '8 進数',
+                placeholder: '240',
+                helperMessage: '0 桁',
+                errorMessage: '入力された値が正しくありません。8進数の形式で入力してください。',
+                inputValue: '',
+                isError: false,
             },
             params: {
-                radix: 8, pattern: /^[0-7]+$/
+                radix: 8,
+                pattern: /^[0-7]+$/,
             }
         },
         decimal: {
             inputConfig: {
-                componentId: 'decimal', type: 'number', label: '10 進数', placeholder: '160',
-                helperMessage: '0 桁', errorMessage: '入力された値が正しくありません。10進数の形式で入力してください。',
-                inputValue: '', isError: false,
+                componentId: 'decimal',
+                type: 'number',
+                label: '10 進数',
+                placeholder: '160',
+                helperMessage: '0 桁',
+                errorMessage: '入力された値が正しくありません。10進数の形式で入力してください。',
+                inputValue: '',
+                isError: false,
             },
             params: {
-                radix: 10, pattern: /^\d+$/
+                radix: 10,
+                pattern: /^\d+$/,
             }
         },
         hexadecimal: {
             inputConfig: {
-                componentId: 'hexadecimal', type: 'text', label: '16 進数', placeholder: 'A0',
-                helperMessage: '0 桁', errorMessage: '入力された値が正しくありません。16進数の形式で入力してください。',
-                inputValue: '', isError: false,
+                componentId: 'hexadecimal',
+                type: 'text',
+                label: '16 進数',
+                placeholder: 'A0',
+                helperMessage: '0 桁',
+                errorMessage: '入力された値が正しくありません。16進数の形式で入力してください。',
+                inputValue: '',
+                isError: false,
             },
             params: {
-                radix: 16, pattern: /^[0-9A-Fa-f]+$/
+                radix: 16,
+                pattern: /^[0-9A-Fa-f]+$/,
             }
         },
     })
