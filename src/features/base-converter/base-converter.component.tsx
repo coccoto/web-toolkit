@@ -3,7 +3,7 @@
 // react
 import React from 'react'
 // components
-import { InputField, InputConfigType } from '@/components/input-text/input-text.component'
+import { InputField, InputConfigType } from '@/components/input-field/input-field.component'
 // styles
 import styles from '@/features/base-converter/base-converter.module.sass'
 

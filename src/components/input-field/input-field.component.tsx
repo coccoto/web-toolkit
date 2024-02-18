@@ -3,7 +3,7 @@
 // react
 import React from 'react'
 // styles
-import styles from '@/components/input-text/input-text.module.sass'
+import styles from '@/components/input-field/input-field.module.sass'
 // @mui
 import TextField from '@mui/material/TextField'
 
