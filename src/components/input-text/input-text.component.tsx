@@ -7,47 +7,53 @@ import styles from '@/components/input-text/input-text.module.sass'
 // @mui
 import TextField from '@mui/material/TextField'
 
-type Props = {
+export type InputConfigType = {
     componentId: string,
+    type: 'text' | 'number',
     label: string,
     placeholder: string,
     helperMessage: string,
     errorMessage: string,
     inputValue: string,
     isError: boolean,
+}
+
+type Props = {
+    inputConfig: InputConfigType,
     handleClick: (event: React.MouseEvent<HTMLInputElement>, componentId: string) => void,
     handleBlur: (event: React.FocusEvent<HTMLInputElement>, componentId: string) => void,
     handleInput: (event: React.ChangeEvent<HTMLInputElement>, componentId: string) => void,
 }
 
-export default (props: Props): JSX.Element  => {
+export const InputField = (props: Props): JSX.Element  => {
 
     const handleClick = (event: React.MouseEvent<HTMLInputElement>): void => {
-        props.handleClick(event, props.componentId);
+        props.handleClick(event, props.inputConfig.componentId);
     }
 
     const handleBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
-        props.handleBlur(event, props.componentId);
+        props.handleBlur(event, props.inputConfig.componentId);
     }
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        props.handleInput(event, props.componentId)
+        props.handleInput(event, props.inputConfig.componentId)
     }
 
     return (
         <div className={styles['container']}>
-            <div className={styles['label']}>{props.label}</div>
+            <div className={styles['label']}>{props.inputConfig.label}</div>
             <TextField
-                value={props.inputValue}
-                placeholder={props.placeholder}
-                error={props.isError}
-                onClick={handleClick}
-                onBlur={handleBlur}
-                onInput={handleInput}
-                helperText={props.isError ? props.errorMessage : props.helperMessage}
                 fullWidth
                 color={'info'}
                 className={styles['text-field']}
+                type={props.inputConfig.type}
+                placeholder={props.inputConfig.placeholder}
+                helperText={props.inputConfig.isError ? props.inputConfig.errorMessage : props.inputConfig.helperMessage}
+                value={props.inputConfig.inputValue}
+                error={props.inputConfig.isError}
+                onClick={handleClick}
+                onBlur={handleBlur}
+                onInput={handleInput}
                 >
             </TextField>
         </div>
