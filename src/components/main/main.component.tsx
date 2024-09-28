@@ -35,16 +35,16 @@ export default (props: Props) => {
     return (
         <div className={styles['container']}>
             <Header handleClickMenuButton={handleClickMenuButton}></Header>
-            <div className={styles['wrapper-main']}>
+            <div className={styles['main-wrapper']}>
                 <DrawerMenu
                     isOpenDrawerMenu={isOpenDrawerMenu}
                     menuData={props.menuData}
                     setIsOpenDrawerMenu={setIsOpenDrawerMenu}
                     ref={refDrawerMenu}
                 ></DrawerMenu>
-                <div className={styles['wrapper-content']}>
+                <div className={styles['content-wrapper']}>
                     <Toolbar></Toolbar>
-                    <div className={styles['wrapper-application']}>{props.children}</div>
+                    <div className={styles['application-wrapper']}>{props.children}</div>
                     <Footer></Footer>
                 </div>
             </div>

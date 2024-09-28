@@ -1,11 +1,11 @@
 // components
 import Main from '@/components/main/main.component'
+// features
+import BaseConverter from '@/features/base-converter/base-converter.component'
 // types
 import { ViewMenuType } from '@/types/ViewMenuType'
 // scripts
 import fetchMenuData from '@/utils/fetchMenuData'
-// features
-import BaseConverter from '@/features/base-converter/base-converter.component'
 
 export const dynamic = 'force-dynamic'
 

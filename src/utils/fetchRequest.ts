@@ -10,6 +10,9 @@ export default async <T>(endpoint: string, options: RequestInit): Promise<T> => 
             throw new Error(`HTTP Error. Status: ${response.status}`)
         }
         const data = await response.json() as T
+
+        console.log({requestUrl, data})
+
         return data
 
     } catch (error) {

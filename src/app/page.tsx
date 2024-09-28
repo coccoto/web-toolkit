@@ -1,5 +1,7 @@
 // components
 import Main from '@/components/main/main.component'
+// features
+import Index from '@/features/index/index.component'
 // types
 import { ViewMenuType } from '@/types/ViewMenuType'
 // scripts
@@ -13,7 +15,7 @@ export default async () => {
 
     return (
         <Main
-            children={<div></div>}
+            children={<Index menuData={menuData}></Index>}
             menuData={menuData}
         ></Main>
     )

@@ -39,16 +39,16 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
         props.setIsOpenDrawerMenu(! props.isOpenDrawerMenu)
     }
 
-    // create Element
+    // Create Element
     const elemMenu = () => {
-        if (props.menuData === null || props.menuData === undefined) {
+        if (props.menuData === null || props.menuData === undefined || Object.keys(props.menuData).length === 0) {
             return
         }
-        const section1Data = props.menuData.filter((item) => item.location_no === 1);
-        const section2Data = props.menuData.filter((item) => item.location_no === 2);
+        const section1Data = props.menuData.filter((item) => item.location_no === 1)
+        const section2Data = props.menuData.filter((item) => item.location_no === 2)
 
         return (
-            <List className={styles['container-menu']}>
+            <List className={styles['menu-wrapper']}>
                 <div>
                     <ListSubheader color={'inherit'} className={styles['menu-header']}>Tools</ListSubheader>
                     <Divider></Divider>
@@ -77,13 +77,13 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
 
     return (
         <div className={styles['container']}>
-            <div className={styles['wrapper-mobile']}>
+            <div className={styles['mobile-wrapper']}>
                 <Drawer open={props.isOpenDrawerMenu} onClose={toggleDrawerMenu} sx={{'& .MuiDrawer-paper': { width: drawerMenuWidth }}}>
                     <Toolbar></Toolbar>
                     {elemMenu()}
                 </Drawer>
             </div>
-            <div className={styles['wrapper-pc']} style={{ width: drawerMenuWidth }}>
+            <div className={styles['pc-wrapper']} style={{ width: drawerMenuWidth }}>
                 <Toolbar></Toolbar>
                 {elemMenu()}
             </div>

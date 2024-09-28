@@ -140,7 +140,7 @@ export default () => {
             <div>
                 <h2 className={styles['feature-header']}>進数変換</h2>
             </div>
-            <div className={styles['wrapper-main']}>
+            <div className={styles['main-wrapper']}>
                 {Object.keys(inputDataList).map((baseType) => {
                     const inputData = inputDataList[baseType]
                     return (

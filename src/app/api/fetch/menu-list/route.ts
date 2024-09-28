@@ -18,7 +18,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         await dbManager.connect()
         const menuListService = new MenuListService(dbManager)
 
-        apiResponse.result = await menuListService.getViewMenu()
+        apiResponse.result = await menuListService.fetchMenuList()
         apiResponse.code = 200
         apiResponse.message = 'success'
 
