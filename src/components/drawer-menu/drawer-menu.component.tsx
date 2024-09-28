@@ -65,7 +65,7 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
                     <Divider></Divider>
                     {section2Data.map((item) => (
                         <ListItem disablePadding key={item.id}>
-                            <ListItemButton className={styles['menu-item']} href={item.origin}>
+                            <ListItemButton className={styles['menu-item']} href={item.origin + item.path}>
                                 {item.app_name}
                             </ListItemButton>
                         </ListItem>
