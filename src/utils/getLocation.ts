@@ -1,8 +1,8 @@
 export default async () => {
-    if (process.env['ENVIRONMENT'] === 'development') {
+    if (false) {
         return 'http://localhost:18010'
 
-    } else if (process.env['ENVIRONMENT'] === 'production') {
+    } else if (true) {
         return 'https://webtoolkit'
 
     } else {
