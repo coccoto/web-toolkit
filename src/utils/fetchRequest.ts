@@ -1,22 +1,22 @@
 // scripts
 import getLocation from '@/utils/getLocation'
+// @coccoto
+import { logger } from '@coccoto/node-logmanager'
 
 export default async <T>(endpoint: string, options: RequestInit): Promise<T> => {
     const requestUrl = await getLocation() + endpoint
-    
+
     try {
         const response = await fetch(requestUrl, options)
         if (! response.ok) {
-            throw new Error(`HTTP Error. Status: ${response.status}`)
+            logger.error('An error occurred in fetchRequest. requestUrl: ' + requestUrl)
         }
         const data = await response.json() as T
-
-        console.log({requestUrl, data})
-
+        logger.info('fetchRequest is complete. requestUrl: ' + requestUrl)
         return data
 
     } catch (error) {
-        console.error('fetch failed. requestUrl: ' + requestUrl)
+        logger.error('An error occurred in fetchRequest. requestUrl: ' + requestUrl)
         return {} as T
     }
 }

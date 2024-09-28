@@ -22,13 +22,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         apiResponse.code = 200
         apiResponse.message = 'success'
 
+        logger.info('[/api/fetch/menu-list] route is complete.')
         return NextResponse.json({ ...apiResponse })
 
     } catch (error: unknown) {
         apiResponse.code = 500
         apiResponse.message = 'error'
 
-        logger.error('An exception occurred. Error: ' + (error as Error).message)
+        logger.error('An error occurred in [/api/fetch/menu-list] route. Error: ' + (error as Error).message)
         return NextResponse.json({ ...apiResponse })
 
     } finally {

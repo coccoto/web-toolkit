@@ -1,3 +1,6 @@
+// @coccoto
+import { logger } from '@coccoto/node-logmanager'
+
 export default async () => {
     if (process.env['ENVIRONMENT'] === 'development') {
         return 'http://localhost:18010'
@@ -6,7 +9,7 @@ export default async () => {
         return 'https://webtoolkit.coccoto.com'
 
     } else {
-        console.error('error')
+        logger.error('An error occurred in getLocation.')
         return null
     }
 }
