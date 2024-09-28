@@ -21,4 +21,4 @@ ROOT_DIR="$SCRIPT_DIR/.."
 npmInstall "$ROOT_DIR"
 build "$ROOT_DIR"
 
-echo 'root complete'
+echo '[INFO] root is complete.'

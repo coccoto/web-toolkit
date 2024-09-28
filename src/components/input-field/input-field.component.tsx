@@ -41,11 +41,10 @@ export const InputField = (props: Props): JSX.Element  => {
 
     return (
         <div className={styles['container']}>
-            <div className={styles['label']}>{props.inputConfig.label}</div>
+            <div className={styles['input-label']}>{props.inputConfig.label}</div>
             <TextField
                 fullWidth
-                color={'info'}
-                className={styles['text-field']}
+                className={styles['input-field']}
                 type={props.inputConfig.type}
                 placeholder={props.inputConfig.placeholder}
                 helperText={props.inputConfig.isError ? props.inputConfig.errorMessage : props.inputConfig.helperMessage}

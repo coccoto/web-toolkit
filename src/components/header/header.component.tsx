@@ -26,7 +26,7 @@ export default (props: Props) => {
                 <IconButton className={styles['menu-icon']} edge='start' color='inherit' onClick={handleClickMenuButton}>
                     <MenuIcon></MenuIcon>
                 </IconButton>
-                <Link href='/' underline='none' className={styles['app-title']}>Web Toolkit</Link>
+                <Link href='/' underline='none' className={styles['app-header']}>Web Toolkit</Link>
             </Toolbar>
         </AppBar>
     )

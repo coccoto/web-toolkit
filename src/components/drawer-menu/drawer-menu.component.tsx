@@ -44,8 +44,8 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
         if (props.menuData === null || props.menuData === undefined) {
             return
         }
-        const section1Data = props.menuData.filter((item) => item.section_no === 1);
-        const section2Data = props.menuData.filter((item) => item.section_no === 2);
+        const section1Data = props.menuData.filter((item) => item.location_no === 1);
+        const section2Data = props.menuData.filter((item) => item.location_no === 2);
 
         return (
             <List className={styles['container-menu']}>
@@ -55,7 +55,7 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
                     {section1Data.map((item) => (
                         <ListItem disablePadding key={item.id}>
                             <ListItemButton className={styles['menu-item']} href={item.path}>
-                                {item.screen_name}
+                                {item.feature_name}
                             </ListItemButton>
                         </ListItem>
                     ))}
@@ -66,7 +66,7 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
                     {section2Data.map((item) => (
                         <ListItem disablePadding key={item.id}>
                             <ListItemButton className={styles['menu-item']} href={item.origin}>
-                                {item.system_name}
+                                {item.app_name}
                             </ListItemButton>
                         </ListItem>
                     ))}

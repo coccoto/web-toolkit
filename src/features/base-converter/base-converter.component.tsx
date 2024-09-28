@@ -138,7 +138,7 @@ export default () => {
     return (
         <div className={styles['container']}>
             <div>
-                <h2>進数変換</h2>
+                <h2 className={styles['feature-header']}>進数変換</h2>
             </div>
             <div className={styles['wrapper-main']}>
                 {Object.keys(inputDataList).map((baseType) => {

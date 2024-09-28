@@ -12,7 +12,7 @@ SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 # root ディレクトリをセットする
 ROOT_DIR="$SCRIPT_DIR/.."
 
-# server の処理を開始する
+# root の処理を開始する
 runServer "$ROOT_DIR"
 
-echo 'root complete'
+echo '[INFO] root is complete.'

@@ -1,18 +1,20 @@
 export type ViewMenuType = {
     id: number,
-    system_name: string,
-    screen_name: string,
+    app_name: string,
+    feature_name: string,
     origin: string,
     path: string,
-    section_no: number,
+    location_no: number,
+    sort_order: number,
 }
 export const initViewMenuType = (): ViewMenuType => {
     return {
         id: 0,
-        system_name: '',
-        screen_name: '',
+        app_name: '',
+        feature_name: '',
         origin: '',
         path: '',
-        section_no: 0,
+        location_no: 0,
+        sort_order: 0,
     }
 }
