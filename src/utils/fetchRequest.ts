@@ -16,7 +16,7 @@ export default async <T>(endpoint: string, options: RequestInit): Promise<T> => 
         return data
 
     } catch (error) {
-        console.error('fetch failed')
+        console.error('fetch failed. requestUrl: ' + requestUrl)
         return {} as T
     }
 }
