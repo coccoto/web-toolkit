@@ -31,6 +31,7 @@ export default (props: Props) => {
                     <Card key={item.id} sx={{
                             maxWidth: 300,
                             backgroundColor: '#fcfcfc',
+                            border: '1px solid #efefef'
                         }}>
                         <CardActionArea href={item.path}>
                             <CardMedia component={'img'} image={'/images/' + item.program_id + '.png'}></CardMedia>
