@@ -38,7 +38,7 @@ export default (props: Props) => {
                                 <div>
                                     <h3 className={styles['card-header']}>{item.feature_name}</h3>
                                 </div>
-                                <div>{item.description}</div>
+                                <div className={styles['card-description']}>{item.description}</div>
                             </CardContent>
                         </CardActionArea>
                     </Card>
