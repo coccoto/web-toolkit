@@ -28,7 +28,7 @@ export default (props: Props) => {
         return (
             <div>
                 {section1Data.map((item) => (
-                    <Card key={item.id} sx={{
+                    <Card key={item.menu_id} sx={{
                             maxWidth: 300,
                             backgroundColor: '#fcfcfc',
                             border: '1px solid #efefef'

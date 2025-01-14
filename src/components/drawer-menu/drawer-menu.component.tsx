@@ -53,7 +53,7 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
                     <ListSubheader color={'inherit'} className={styles['menu-header']}>Tools</ListSubheader>
                     <Divider></Divider>
                     {section1Data.map((item) => (
-                        <ListItem disablePadding key={item.id}>
+                        <ListItem disablePadding key={item.menu_id}>
                             <ListItemButton className={styles['menu-item']} href={item.path}>
                                 {item.feature_name}
                             </ListItemButton>
@@ -64,7 +64,7 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
                     <ListSubheader color={'inherit'} className={styles['menu-header']}>Others</ListSubheader>
                     <Divider></Divider>
                     {section2Data.map((item) => (
-                        <ListItem disablePadding key={item.id}>
+                        <ListItem disablePadding key={item.menu_id}>
                             <ListItemButton className={styles['menu-item']} href={item.origin + item.path}>
                                 {item.app_name}
                             </ListItemButton>

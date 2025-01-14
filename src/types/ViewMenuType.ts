@@ -1,5 +1,5 @@
 export type ViewMenuType = {
-    id: number,
+    menu_id: number,
     app_name: string,
     feature_name: string,
     origin: string,
@@ -11,7 +11,7 @@ export type ViewMenuType = {
 }
 export const initViewMenuType = (): ViewMenuType => {
     return {
-        id: 0,
+        menu_id: 0,
         app_name: '',
         feature_name: '',
         origin: '',
