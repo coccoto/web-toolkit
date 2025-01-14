@@ -6,9 +6,9 @@ SELECT
     , mst.path
     , main.description
     , main.image_name
-    , main.location_no
+    , main.category_type
     , main.sort_order
 FROM webtoolkit.mst_menu AS main
 INNER JOIN global_mst.mst_menu AS mst
     ON main.global_menu_id = mst.menu_id
-ORDER BY main.location_no, main.sort_order
+ORDER BY main.category_type, main.sort_order

@@ -23,7 +23,7 @@ export default (props: Props) => {
         if (props.menuData === null || props.menuData === undefined || Object.keys(props.menuData).length === 0) {
             return
         }
-        const section1Data = props.menuData.filter((item) => item.location_no === 1)
+        const section1Data = props.menuData.filter((item) => item.category_type === 1)
 
         return (
             <div>

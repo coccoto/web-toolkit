@@ -44,8 +44,8 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
         if (props.menuData === null || props.menuData === undefined || Object.keys(props.menuData).length === 0) {
             return
         }
-        const section1Data = props.menuData.filter((item) => item.location_no === 1)
-        const section2Data = props.menuData.filter((item) => item.location_no === 2)
+        const section1Data = props.menuData.filter((item) => item.category_type === 1)
+        const section2Data = props.menuData.filter((item) => item.category_type === 2)
 
         return (
             <List className={styles['menu-wrapper']}>
