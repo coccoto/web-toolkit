@@ -34,7 +34,7 @@ export default (props: Props) => {
                             border: '1px solid #efefef'
                         }}>
                         <CardActionArea href={item.path}>
-                            <CardMedia component={'img'} image={'/images/' + item.program_id + '.png'}></CardMedia>
+                            <CardMedia component={'img'} image={'/images/' + item.image_name + '.png'}></CardMedia>
                             <CardContent className={styles['card-content']}>
                                 <div>
                                     <h3 className={styles['card-header']}>{item.feature_name}</h3>

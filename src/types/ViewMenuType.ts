@@ -5,7 +5,7 @@ export type ViewMenuType = {
     origin: string,
     path: string,
     description: string,
-    program_id: string,
+    image_name: string,
     location_no: number,
     sort_order: number,
 }
@@ -17,7 +17,7 @@ export const initViewMenuType = (): ViewMenuType => {
         origin: '',
         path: '',
         description: '',
-        program_id: '',
+        image_name: '',
         location_no: 0,
         sort_order: 0,
     }

@@ -5,7 +5,7 @@ SELECT
     , mst.origin
     , mst.path
     , main.description
-    , main.program_id
+    , main.image_name
     , main.location_no
     , main.sort_order
 FROM webtoolkit.mst_menu AS main
