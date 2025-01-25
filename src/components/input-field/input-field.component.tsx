@@ -25,7 +25,7 @@ type Props = {
     handleInput: (event: React.ChangeEvent<HTMLInputElement>, componentId: string) => void,
 }
 
-export const InputField = (props: Props): JSX.Element  => {
+export const InputField = (props: Props):React.JSX.Element  => {
 
     const handleClick = (event: React.MouseEvent<HTMLInputElement>): void => {
         props.handleClick(event, props.inputConfig.componentId);

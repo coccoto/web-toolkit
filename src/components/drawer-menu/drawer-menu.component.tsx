@@ -25,7 +25,7 @@ export type Handler = {
 
 const drawerMenuWidth: string = '15rem'
 
-export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRef<Handler>): JSX.Element  => {
+export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRef<Handler>):React.JSX.Element  => {
 
     // parent Element
     React.useImperativeHandle(ref, () => ({
