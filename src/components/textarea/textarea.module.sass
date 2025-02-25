@@ -1,5 +1,10 @@
 @use '@/styles/utils/mixins'
 @use '@/styles/utils/colors'
+
+@mixin textarea()
+    background-color: white
+    padding: 1rem
+    font-size: 1rem
     
 .container
     display: flex
@@ -10,11 +15,11 @@
     font-size: 1.25rem
 
 .textarea
-    background-color: white
+    @include textarea()
     border: 1px solid colors.$border-color
 
     &--error
-        background-color: white
+        @include textarea()
         border: 1px solid colors.$error-color
 
 .helper-text
@@ -23,4 +28,3 @@
     &--error
         @extend .helper-text
         color: colors.$error-color
-

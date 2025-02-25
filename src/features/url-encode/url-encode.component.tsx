@@ -22,7 +22,7 @@ export default () => {
                 componentId: 'input',
                 label: '変換前',
                 placeholder: '',
-                helperMessage: 'helperMessage',
+                helperMessage: '',
                 errorMessage: 'errorMessage',
                 inputValue: undefined,
                 isError: true,
@@ -35,7 +35,7 @@ export default () => {
                 componentId: 'output',
                 label: '変換後',
                 placeholder: '',
-                helperMessage: 'helperMessage',
+                helperMessage: '',
                 errorMessage: 'errorMessage',
                 inputValue: undefined,
                 isError: false,
@@ -46,6 +46,13 @@ export default () => {
     })
 
     const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+        const elemInput = event.currentTarget
+        const inputValue = elemInput.value
+
+        // クリップボードにテキストエリアの値をコピーする
+        if (inputValue !== '') {
+            navigator.clipboard.writeText(inputValue)
+        }
     }
 
     const handleClick = (event: React.MouseEvent<HTMLTextAreaElement>): void => {

@@ -84,7 +84,7 @@ export default () => {
     })
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        const elemInput = event.target
+        const elemInput = event.currentTarget
         const inputValue = elemInput.value
         const decimalValue: number = parseInt(inputValue, inputDataList[elemInput.id].params.radix)
 
