@@ -3,57 +3,57 @@
 // react
 import React from 'react'
 // components
-import { InputField, InputConfigType } from '@/components/input-field/input-field.component'
+import { Textarea, TextareaConfigType } from '@/components/textarea/textarea.component'
 // styles
-import styles from '@/features/base-converter/base-converter.module.sass'
+import styles from '@/features/url-encode/url-encode.module.sass'
 
-type InputDataListType = {
+type TextareaDataListType = {
     [key in string]: {
-        inputConfig: InputConfigType,
+        textareaConfig: TextareaConfigType,
         params: { },
     }
 }
 
 export default () => {
 
-    const [inputDataList, setInputDataList] = React.useState<InputDataListType>({
+    const [textareaDataList, setTextareaDataList] = React.useState<TextareaDataListType>({
         input: {
-            inputConfig: { 
+            textareaConfig: { 
                 componentId: 'input',
-                type: 'text',
+                /*type: 'text',*/
                 label: '変換前',
                 placeholder: '',
-                helperMessage: '',
+                /*helperMessage: '',*/
                 errorMessage: '',
                 inputValue: '',
-                isError: false,
+                /*isError: false,*/
             },
             params: {
             }
         },
         output: {
-            inputConfig: {
+            textareaConfig: {
                 componentId: 'output',
-                type: 'text',
+               /* type: 'text',*/
                 label: '変換後',
                 placeholder: '',
-                helperMessage: '',
+                /*helperMessage: '',*/
                 errorMessage: '',
                 inputValue: '',
-                isError: false,
+                /*isError: false,*/
             },
             params: {
             }
         },
     })
 
-    const handleInput = (event: React.ChangeEvent<HTMLInputElement>, componentId: string): void => {
+    const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
     }
 
-    const handleClick = (event: React.MouseEvent<HTMLInputElement>, componentId: string): void => {
+    const handleClick = (event: React.MouseEvent<HTMLTextAreaElement>): void => {
     }
 
-    const handleBlur = (event: React.FocusEvent<HTMLInputElement>, componentId: string): void => {
+    const handleBlur = (event: React.FocusEvent<HTMLTextAreaElement>): void => {
     }
 
     return (
@@ -62,16 +62,16 @@ export default () => {
                 <h2 className={styles['feature-header']}>URL エンコード｜デコード</h2>
             </div>
             <div className={styles['main-wrapper']}>
-                {Object.keys(inputDataList).map((baseType) => {
-                    const inputData = inputDataList[baseType]
+                {Object.keys(textareaDataList).map((baseType) => {
+                    const textareaData = textareaDataList[baseType]
                     return (
-                        <InputField
-                            key={inputData.inputConfig.componentId}
-                            inputConfig={inputData.inputConfig}
+                        <Textarea
+                            key={textareaData.textareaConfig.componentId}
+                            textareaConfig={textareaData.textareaConfig}
                             handleClick={handleClick}
                             handleBlur={handleBlur}
                             handleInput={handleInput}
-                        ></InputField>
+                        ></Textarea>
                     )
                 })}
             </div>

@@ -10,7 +10,7 @@ import styles from '@/features/base-converter/base-converter.module.sass'
 type InputDataListType = {
     [key in string]: {
         inputConfig: InputConfigType,
-        params: { radix: number, pattern: RegExp },
+        params: { radix: number },
     }
 }
 
@@ -30,7 +30,7 @@ export default () => {
             },
             params: {
                 radix: 2,
-                pattern: /^[01]+$/,
+
             }
         },
         octal: {
@@ -46,7 +46,7 @@ export default () => {
             },
             params: {
                 radix: 8,
-                pattern: /^[0-7]+$/,
+
             }
         },
         decimal: {
@@ -62,7 +62,7 @@ export default () => {
             },
             params: {
                 radix: 10,
-                pattern: /^\d+$/,
+
             }
         },
         hexadecimal: {
@@ -78,14 +78,15 @@ export default () => {
             },
             params: {
                 radix: 16,
-                pattern: /^[0-9A-Fa-f]+$/,
+
             }
         },
     })
 
-    const handleInput = (event: React.ChangeEvent<HTMLInputElement>, baseType: string): void => {
-        const inputValue = event.target.value
-        const decimalValue: number = parseInt(inputValue, inputDataList[baseType].params.radix)
+    const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        const elemInput = event.target
+        const inputValue = elemInput.value
+        const decimalValue: number = parseInt(inputValue, inputDataList[elemInput.id].params.radix)
 
         if (inputValue === '') {
             setInputDataList((prevInputDataList) => {
@@ -100,15 +101,18 @@ export default () => {
             })
 
         } else {
-            const isError = ! inputDataList[baseType].params.pattern.test(inputValue) || isNaN(decimalValue)
+            const isError = isNaN(decimalValue)
             if(isError) {
                 setInputDataList((prevInputDataList) => ({
                     ...prevInputDataList,
-                    [baseType]: {
-                        ...prevInputDataList[baseType],
-                        inputValue: inputValue,
-                        helperMessage: String(inputValue.length) + ' 桁',
-                        isError: true,
+                    [elemInput.id]: {
+                        ...prevInputDataList[elemInput.id],
+                        inputConfig: {
+                            ...prevInputDataList[elemInput.id].inputConfig,
+                            inputValue: inputValue,
+                            helperMessage: String(inputValue.length) + ' 桁',
+                            isError: true,
+                        }
                     }
                 }))
 
@@ -120,7 +124,7 @@ export default () => {
                         const baseValue = decimalValue.toString(tempInputDataList[baseType].params.radix)
 
                         tempInputDataList[baseType].inputConfig.inputValue = baseType === 'hexadecimal' ? baseValue.toUpperCase() : baseValue
-                        tempInputDataList[baseType].inputConfig.helperMessage = String(tempInputDataList[baseType].inputConfig.inputValue.length) + ' 桁'
+                        tempInputDataList[baseType].inputConfig.helperMessage = String(tempInputDataList[baseType].inputConfig.inputValue.length) + ' 桁',
                         tempInputDataList[baseType].inputConfig.isError = false
                     })
                     return tempInputDataList
@@ -129,10 +133,10 @@ export default () => {
         }
     }
 
-    const handleClick = (event: React.MouseEvent<HTMLInputElement>, baseType: string): void => {
+    const handleClick = (event: React.MouseEvent<HTMLInputElement>): void => {
     }
 
-    const handleBlur = (event: React.FocusEvent<HTMLInputElement>, baseType: string): void => {
+    const handleBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
     }
 
     return (

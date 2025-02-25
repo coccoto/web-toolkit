@@ -20,23 +20,23 @@ export type InputConfigType = {
 
 type Props = {
     inputConfig: InputConfigType,
-    handleClick: (event: React.MouseEvent<HTMLInputElement>, componentId: string) => void,
-    handleBlur: (event: React.FocusEvent<HTMLInputElement>, componentId: string) => void,
-    handleInput: (event: React.ChangeEvent<HTMLInputElement>, componentId: string) => void,
+    handleClick: (event: React.MouseEvent<HTMLInputElement>) => void,
+    handleBlur: (event: React.FocusEvent<HTMLInputElement>) => void,
+    handleInput: (event: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
 export const InputField = (props: Props):React.JSX.Element  => {
 
     const handleClick = (event: React.MouseEvent<HTMLInputElement>): void => {
-        props.handleClick(event, props.inputConfig.componentId);
+        props.handleClick(event)
     }
 
     const handleBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
-        props.handleBlur(event, props.inputConfig.componentId);
+        props.handleBlur(event)
     }
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        props.handleInput(event, props.inputConfig.componentId)
+        props.handleInput(event)
     }
 
     return (
@@ -44,6 +44,7 @@ export const InputField = (props: Props):React.JSX.Element  => {
             <div className={styles['input-label']}>{props.inputConfig.label}</div>
             <TextField
                 fullWidth
+                id={props.inputConfig.componentId}
                 className={styles['input-field']}
                 type={props.inputConfig.type}
                 placeholder={props.inputConfig.placeholder}
