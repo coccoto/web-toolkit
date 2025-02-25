@@ -20,13 +20,12 @@ export default () => {
         input: {
             textareaConfig: { 
                 componentId: 'input',
-                /*type: 'text',*/
                 label: '変換前',
                 placeholder: '',
-                /*helperMessage: '',*/
-                errorMessage: '',
-                inputValue: '',
-                /*isError: false,*/
+                helperMessage: 'helperMessage',
+                errorMessage: 'errorMessage',
+                inputValue: undefined,
+                isError: true,
             },
             params: {
             }
@@ -34,13 +33,12 @@ export default () => {
         output: {
             textareaConfig: {
                 componentId: 'output',
-               /* type: 'text',*/
                 label: '変換後',
                 placeholder: '',
-                /*helperMessage: '',*/
-                errorMessage: '',
-                inputValue: '',
-                /*isError: false,*/
+                helperMessage: 'helperMessage',
+                errorMessage: 'errorMessage',
+                inputValue: undefined,
+                isError: false,
             },
             params: {
             }

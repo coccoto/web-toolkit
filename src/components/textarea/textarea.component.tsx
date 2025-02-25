@@ -11,10 +11,10 @@ export type TextareaConfigType = {
     componentId: string,
     label: string,
     placeholder: string,
-    /*helperMessage: string,*/
+    helperMessage: string,
     errorMessage: string,
-    inputValue: string,
-    /*isError: boolean,*/
+    inputValue: string | undefined,
+    isError: boolean,
 }
 
 type Props = {
@@ -44,16 +44,17 @@ export const Textarea = (props: Props):React.JSX.Element  => {
             <TextareaAutosize
                 minRows={10}
                 id={props.textareaConfig.componentId}
-                className={styles['textarea']}
+                className={styles[props.textareaConfig.isError ? 'textarea--error' : 'textarea']}
                 placeholder={props.textareaConfig.placeholder}
-                /*helperText={props.textareaConfig.isError ? props.textareaConfig.errorMessage : props.textareaConfig.helperMessage}*/
-                value={props.textareaConfig.inputValue}
-                /*error={props.textareaConfig.isError}*/
+                value={undefined}
                 onClick={handleClick}
                 onBlur={handleBlur}
                 onInput={handleInput}
                 >
             </TextareaAutosize>
+            <div className={styles[props.textareaConfig.isError ? 'helper-text--error' : 'helper-text']}>
+                {props.textareaConfig.isError ? props.textareaConfig.errorMessage : props.textareaConfig.helperMessage}
+            </div>
         </div>
     )
 }

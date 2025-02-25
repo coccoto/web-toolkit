@@ -14,7 +14,7 @@ export type InputConfigType = {
     placeholder: string,
     helperMessage: string,
     errorMessage: string,
-    inputValue: string,
+    inputValue: string | undefined,
     isError: boolean,
 }
 
