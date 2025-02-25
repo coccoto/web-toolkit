@@ -46,6 +46,9 @@ export default () => {
     })
 
     const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    }
+
+    const handleClick = (event: React.MouseEvent<HTMLTextAreaElement>): void => {
         const elemInput = event.currentTarget
         const inputValue = elemInput.value
 
@@ -53,9 +56,6 @@ export default () => {
         if (inputValue !== '') {
             navigator.clipboard.writeText(inputValue)
         }
-    }
-
-    const handleClick = (event: React.MouseEvent<HTMLTextAreaElement>): void => {
     }
 
     const handleBlur = (event: React.FocusEvent<HTMLTextAreaElement>): void => {
