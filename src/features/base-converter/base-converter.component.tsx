@@ -25,7 +25,7 @@ export default () => {
                 placeholder: '10100000',
                 helperMessage: '0 桁',
                 errorMessage: '入力された値が正しくありません。2進数の形式で入力してください。',
-                inputValue: undefined,
+                inputValue: '',
                 isError: false,
             },
             params: {
@@ -41,7 +41,7 @@ export default () => {
                 placeholder: '240',
                 helperMessage: '0 桁',
                 errorMessage: '入力された値が正しくありません。8進数の形式で入力してください。',
-                inputValue: undefined,
+                inputValue: '',
                 isError: false,
             },
             params: {
@@ -57,7 +57,7 @@ export default () => {
                 placeholder: '160',
                 helperMessage: '0 桁',
                 errorMessage: '入力された値が正しくありません。10進数の形式で入力してください。',
-                inputValue: undefined,
+                inputValue: '',
                 isError: false,
             },
             params: {
@@ -73,7 +73,7 @@ export default () => {
                 placeholder: 'A0',
                 helperMessage: '0 桁',
                 errorMessage: '入力された値が正しくありません。16進数の形式で入力してください。',
-                inputValue: undefined,
+                inputValue: '',
                 isError: false,
             },
             params: {
@@ -84,7 +84,7 @@ export default () => {
     })
 
     const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        const elemInput = event.currentTarget
+        const elemInput = event.target
         const inputValue = elemInput.value
         const decimalValue: number = parseInt(inputValue, inputDataList[elemInput.id].params.radix)
 

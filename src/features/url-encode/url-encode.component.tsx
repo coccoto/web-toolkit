@@ -4,6 +4,9 @@
 import React from 'react'
 // components
 import { Textarea, TextareaConfigType } from '@/components/textarea/textarea.component'
+// @mui
+import ToggleButton from '@mui/material/ToggleButton'
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 // styles
 import styles from '@/features/url-encode/url-encode.module.sass'
 
@@ -16,14 +19,16 @@ type TextareaDataListType = {
 
 export default () => {
 
+    const [checkedToggle, setCheckedToggle] = React.useState('encord')
+
     const [textareaDataList, setTextareaDataList] = React.useState<TextareaDataListType>({
         input: {
             textareaConfig: { 
                 componentId: 'input',
-                label: '変換前',
+                label: '変換するデータを入力',
                 placeholder: '',
                 helperMessage: '',
-                errorMessage: 'errorMessage',
+                errorMessage: '',
                 inputValue: undefined,
                 isError: true,
             },
@@ -33,10 +38,10 @@ export default () => {
         output: {
             textareaConfig: {
                 componentId: 'output',
-                label: '変換後',
+                label: '変換後のデータ',
                 placeholder: '',
                 helperMessage: '',
-                errorMessage: 'errorMessage',
+                errorMessage: '',
                 inputValue: undefined,
                 isError: false,
             },
@@ -45,10 +50,41 @@ export default () => {
         },
     })
 
-    const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+    /**
+     * トグルボタン
+     * @event
+     */
+    const handleChangeToggleButton = (event: React.MouseEvent<HTMLElement>, value: string) => {
+        setCheckedToggle(value)
     }
 
-    const handleClick = (event: React.MouseEvent<HTMLTextAreaElement>): void => {
+    /**
+     * テキストエリア
+     * @event
+     */
+    const handleInputTextarea = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+        const elemTextarea = event.currentTarget
+        let result: string = ''
+
+        if (checkedToggle === 'encord') {
+            result = encodeURIComponent(elemTextarea.value)
+        } else {
+            result = decodeURIComponent(elemTextarea.value)
+        }
+
+        setTextareaDataList(prevTextareaDataList => ({
+            ...prevTextareaDataList,
+            output: {
+                ...prevTextareaDataList.output,
+                textareaConfig: {
+                    ...prevTextareaDataList.output.textareaConfig,
+                    inputValue: result,
+                }
+            }
+        }))
+    }
+
+    const handleClickTextarea = (event: React.MouseEvent<HTMLTextAreaElement>): void => {
         const elemInput = event.currentTarget
         const inputValue = elemInput.value
 
@@ -58,24 +94,34 @@ export default () => {
         }
     }
 
-    const handleBlur = (event: React.FocusEvent<HTMLTextAreaElement>): void => {
+    const handleBlurTextarea = (event: React.FocusEvent<HTMLTextAreaElement>): void => {
     }
 
     return (
         <div className={styles['container']}>
             <div>
-                <h2 className={styles['feature-header']}>URL エンコード｜デコード</h2>
+                <h2 className={styles['feature-header']}>URL エンコード・デコード</h2>
             </div>
             <div className={styles['main-wrapper']}>
+                <ToggleButtonGroup
+                    color={'info'}
+                    value={checkedToggle}
+                    exclusive
+                    onChange={handleChangeToggleButton}
+                >
+                    <ToggleButton value='encord'>エンコード</ToggleButton>
+                    <ToggleButton value="decord">デコード</ToggleButton>
+                </ToggleButtonGroup>
+
                 {Object.keys(textareaDataList).map((baseType) => {
                     const textareaData = textareaDataList[baseType]
                     return (
                         <Textarea
                             key={textareaData.textareaConfig.componentId}
                             textareaConfig={textareaData.textareaConfig}
-                            handleClick={handleClick}
-                            handleBlur={handleBlur}
-                            handleInput={handleInput}
+                            handleClick={handleClickTextarea}
+                            handleBlur={handleBlurTextarea}
+                            handleInput={handleInputTextarea}
                         ></Textarea>
                     )
                 })}

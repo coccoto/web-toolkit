@@ -5,6 +5,8 @@
     background-color: white
     padding: 1rem
     font-size: 1rem
+    outline: none
+    border-radius: 0.25rem
     
 .container
     display: flex
@@ -18,9 +20,17 @@
     @include textarea()
     border: 1px solid colors.$border-color
 
+    &:focus
+        border: 1px solid lighten(colors.$border-color, 10%)
+
     &--error
         @include textarea()
         border: 1px solid colors.$error-color
+
+        &:focus
+            border: 2px solid colors.$error-color
+
+
 
 .helper-text
     margin: 0 1rem

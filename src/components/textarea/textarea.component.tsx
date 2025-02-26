@@ -46,11 +46,11 @@ export const Textarea = (props: Props):React.JSX.Element  => {
                 id={props.textareaConfig.componentId}
                 className={styles[props.textareaConfig.isError ? 'textarea--error' : 'textarea']}
                 placeholder={props.textareaConfig.placeholder}
-                value={undefined}
+                value={props.textareaConfig.inputValue}
                 onClick={handleClick}
                 onBlur={handleBlur}
                 onInput={handleInput}
-                >
+            >
             </TextareaAutosize>
             <div className={styles[props.textareaConfig.isError ? 'helper-text--error' : 'helper-text']}>
                 {props.textareaConfig.isError ? props.textareaConfig.errorMessage : props.textareaConfig.helperMessage}
