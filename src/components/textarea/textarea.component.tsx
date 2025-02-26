@@ -7,7 +7,7 @@ import ReadonlyChip from '@/components/readonly-chip/readonly-chip.component'
 // styles
 import styles from '@/components/textarea/textarea.module.sass'
 // @mui
-import TextareaAutosize from '@mui/material/TextareaAutosize';
+import TextareaAutosize from '@mui/material/TextareaAutosize'
 
 export type TextareaConfigType = {
     componentId: string,

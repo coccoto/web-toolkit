@@ -1,7 +1,7 @@
 // react
 import React from 'react'
 // @mui
-import { Button, ButtonProps } from '@mui/material' // 追加
+import { Button, ButtonProps } from '@mui/material'
 // styles
 import styles from '@/components/icon-button/icon-button.module.sass'
 
