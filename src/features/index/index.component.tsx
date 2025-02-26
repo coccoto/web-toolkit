@@ -26,7 +26,7 @@ export default (props: Props) => {
         const section1Data = props.menuData.filter((item) => item.category_type === 1)
 
         return (
-            <div>
+            <div className={styles['card-container']}>
                 {section1Data.map((item) => (
                     <Card key={item.menu_id} sx={{
                             maxWidth: 300,
@@ -54,9 +54,7 @@ export default (props: Props) => {
             <div>
                 <h2 className={styles['feature-header']}>Tools</h2>
             </div>
-            <div className={styles['card-container']}>
-                {elemCard()}
-            </div>
+            {elemCard()}
         </div>
     )
 }
