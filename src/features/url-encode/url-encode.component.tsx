@@ -29,8 +29,9 @@ export default () => {
                 placeholder: '',
                 helperMessage: '',
                 errorMessage: '',
-                inputValue: undefined,
-                isError: true,
+                inputValue: '',
+                isDisabled: false,
+                isError: false,
             },
             params: {
             }
@@ -42,7 +43,8 @@ export default () => {
                 placeholder: '',
                 helperMessage: '',
                 errorMessage: '',
-                inputValue: undefined,
+                inputValue: '',
+                isDisabled: true,
                 isError: false,
             },
             params: {
@@ -50,12 +52,33 @@ export default () => {
         },
     })
 
+    const urlEncordOrDecord = (value: string, selectedCheckedToggle: string) => {
+        if (selectedCheckedToggle === 'encord') {
+            return encodeURIComponent(value)
+        } else {
+            return decodeURIComponent(value)
+        }
+    }
+
     /**
      * トグルボタン
      * @event
      */
-    const handleChangeToggleButton = (event: React.MouseEvent<HTMLElement>, value: string) => {
-        setCheckedToggle(value)
+    const handleChangeToggleButton = (event: React.MouseEvent<HTMLElement>, selectedCheckedToggle: string) => {
+        setCheckedToggle(selectedCheckedToggle)
+
+        const result: string = urlEncordOrDecord(textareaDataList.input.textareaConfig.inputValue, selectedCheckedToggle)
+        setTextareaDataList(prevTextareaDataList => ({
+            ...prevTextareaDataList,
+            output: {
+                ...prevTextareaDataList.output,
+                textareaConfig: {
+                    ...prevTextareaDataList.output.textareaConfig,
+                    inputValue: result,
+                }
+            }
+        }))
+
     }
 
     /**
@@ -64,16 +87,17 @@ export default () => {
      */
     const handleInputTextarea = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
         const elemTextarea = event.currentTarget
-        let result: string = ''
 
-        if (checkedToggle === 'encord') {
-            result = encodeURIComponent(elemTextarea.value)
-        } else {
-            result = decodeURIComponent(elemTextarea.value)
-        }
-
+        const result: string = urlEncordOrDecord(elemTextarea.value, checkedToggle)
         setTextareaDataList(prevTextareaDataList => ({
             ...prevTextareaDataList,
+            input: {
+                ...prevTextareaDataList.input,
+                textareaConfig: {
+                    ...prevTextareaDataList.input.textareaConfig,
+                    inputValue: elemTextarea.value,
+                }
+            },
             output: {
                 ...prevTextareaDataList.output,
                 textareaConfig: {
@@ -85,13 +109,6 @@ export default () => {
     }
 
     const handleClickTextarea = (event: React.MouseEvent<HTMLTextAreaElement>): void => {
-        const elemInput = event.currentTarget
-        const inputValue = elemInput.value
-
-        // クリップボードにテキストエリアの値をコピーする
-        if (inputValue !== '') {
-            navigator.clipboard.writeText(inputValue)
-        }
     }
 
     const handleBlurTextarea = (event: React.FocusEvent<HTMLTextAreaElement>): void => {
@@ -107,24 +124,24 @@ export default () => {
                     color={'info'}
                     value={checkedToggle}
                     exclusive
-                    onChange={handleChangeToggleButton}
-                >
+                onChange={handleChangeToggleButton}>
                     <ToggleButton value='encord'>エンコード</ToggleButton>
                     <ToggleButton value="decord">デコード</ToggleButton>
                 </ToggleButtonGroup>
-
-                {Object.keys(textareaDataList).map((baseType) => {
-                    const textareaData = textareaDataList[baseType]
-                    return (
-                        <Textarea
-                            key={textareaData.textareaConfig.componentId}
-                            textareaConfig={textareaData.textareaConfig}
-                            handleClick={handleClickTextarea}
-                            handleBlur={handleBlurTextarea}
-                            handleInput={handleInputTextarea}
-                        ></Textarea>
-                    )
-                })}
+                <Textarea
+                    key={textareaDataList.input.textareaConfig.componentId}
+                    textareaConfig={textareaDataList.input.textareaConfig}
+                    handleClick={handleClickTextarea}
+                    handleBlur={handleBlurTextarea}
+                    handleInput={handleInputTextarea}
+                ></Textarea>
+                <Textarea
+                    key={textareaDataList.output.textareaConfig.componentId}
+                    textareaConfig={textareaDataList.output.textareaConfig}
+                    handleClick={handleClickTextarea}
+                    handleBlur={handleBlurTextarea}
+                    handleInput={handleInputTextarea}
+                ></Textarea>
             </div>
         </div>
     )

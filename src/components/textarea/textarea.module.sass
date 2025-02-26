@@ -13,12 +13,19 @@
     flex-direction: column
     gap: 0.25rem
 
+.label-wrapper
+    display: flex
+    justify-content: space-between
+
 .textarea-label
     font-size: 1.25rem
 
 .textarea
     @include textarea()
     border: 1px solid colors.$border-color
+
+    &:hover
+        border: 1px solid darken(colors.$border-color, 40%)
 
     &:focus
         border: 1px solid lighten(colors.$border-color, 10%)
@@ -29,8 +36,6 @@
 
         &:focus
             border: 2px solid colors.$error-color
-
-
 
 .helper-text
     margin: 0 1rem

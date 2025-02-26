@@ -26,6 +26,7 @@ export default () => {
                 helperMessage: '0 桁',
                 errorMessage: '入力された値が正しくありません。2進数の形式で入力してください。',
                 inputValue: '',
+                isDisabled: false,
                 isError: false,
             },
             params: {
@@ -42,6 +43,7 @@ export default () => {
                 helperMessage: '0 桁',
                 errorMessage: '入力された値が正しくありません。8進数の形式で入力してください。',
                 inputValue: '',
+                isDisabled: false,
                 isError: false,
             },
             params: {
@@ -58,6 +60,7 @@ export default () => {
                 helperMessage: '0 桁',
                 errorMessage: '入力された値が正しくありません。10進数の形式で入力してください。',
                 inputValue: '',
+                isDisabled: false,
                 isError: false,
             },
             params: {
@@ -74,6 +77,7 @@ export default () => {
                 helperMessage: '0 桁',
                 errorMessage: '入力された値が正しくありません。16進数の形式で入力してください。',
                 inputValue: '',
+                isDisabled: false,
                 isError: false,
             },
             params: {

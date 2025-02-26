@@ -2,6 +2,8 @@
 
 // react
 import React from 'react'
+// components
+import ReadonlyChip from '@/components/readonly-chip/readonly-chip.component'
 // styles
 import styles from '@/components/input-field/input-field.module.sass'
 // @mui
@@ -14,7 +16,8 @@ export type InputConfigType = {
     placeholder: string,
     helperMessage: string,
     errorMessage: string,
-    inputValue: string | undefined,
+    inputValue: string,
+    isDisabled: boolean,
     isError: boolean,
 }
 
@@ -41,7 +44,12 @@ export const InputField = (props: Props):React.JSX.Element  => {
 
     return (
         <div className={styles['container']}>
-            <div className={styles['input-label']}>{props.inputConfig.label}</div>
+            <div className={styles['label-wrapper']}>
+                <div className={styles['input-label']}>{props.inputConfig.label}</div>
+                {props.inputConfig.isDisabled && (
+                    <ReadonlyChip handleClick={() => {}} />
+                )}
+            </div>
             <TextField
                 fullWidth
                 id={props.inputConfig.componentId}
@@ -50,6 +58,7 @@ export const InputField = (props: Props):React.JSX.Element  => {
                 placeholder={props.inputConfig.placeholder}
                 helperText={props.inputConfig.isError ? props.inputConfig.errorMessage : props.inputConfig.helperMessage}
                 value={props.inputConfig.inputValue}
+                disabled={props.inputConfig.isDisabled}
                 error={props.inputConfig.isError}
                 onClick={handleClick}
                 onBlur={handleBlur}

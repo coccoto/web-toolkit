@@ -2,6 +2,8 @@
 
 // react
 import React from 'react'
+// components
+import ReadonlyChip from '@/components/readonly-chip/readonly-chip.component'
 // styles
 import styles from '@/components/textarea/textarea.module.sass'
 // @mui
@@ -13,7 +15,8 @@ export type TextareaConfigType = {
     placeholder: string,
     helperMessage: string,
     errorMessage: string,
-    inputValue: string | undefined,
+    inputValue: string,
+    isDisabled: boolean,
     isError: boolean,
 }
 
@@ -40,13 +43,19 @@ export const Textarea = (props: Props):React.JSX.Element  => {
 
     return (
         <div className={styles['container']}>
-            <div className={styles['textarea-label']}>{props.textareaConfig.label}</div>
+            <div className={styles['label-wrapper']}>
+                <div className={styles['textarea-label']}>{props.textareaConfig.label}</div>
+                {props.textareaConfig.isDisabled && (
+                    <ReadonlyChip handleClick={() => {}} />
+                )}
+            </div>
             <TextareaAutosize
                 minRows={10}
                 id={props.textareaConfig.componentId}
                 className={styles[props.textareaConfig.isError ? 'textarea--error' : 'textarea']}
                 placeholder={props.textareaConfig.placeholder}
                 value={props.textareaConfig.inputValue}
+                disabled={props.textareaConfig.isDisabled}
                 onClick={handleClick}
                 onBlur={handleBlur}
                 onInput={handleInput}
