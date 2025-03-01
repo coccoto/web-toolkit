@@ -14,7 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <meta name='description' content='Web Toolkit は、開発者のためのブラウザだけで使えるツールセットです。'></meta>
                 <meta name='author' content='coccoto'></meta>
                 {/* OGP */}
-                <meta property='og:url' content='https://webtoolkit.coccoto.com/'></meta>
+                <meta property='og:url' content='https://web-toolkit.coccoto.com/'></meta>
                 <meta property='og:type' content='website'></meta>
                 <meta property='og:title' content='Web Toolkit'></meta>
                 <meta property='og:description' content='Web Toolkit は、開発者のためのブラウザだけで使えるツールセットです。'></meta>
