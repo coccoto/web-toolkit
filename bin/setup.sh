@@ -17,7 +17,7 @@ SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 # root ディレクトリをセットする
 ROOT_DIR="$SCRIPT_DIR/.."
 
-# root の処理を開始する
+# アプリケーションをセットアップする
 npmInstall "$ROOT_DIR"
 build "$ROOT_DIR"
 
