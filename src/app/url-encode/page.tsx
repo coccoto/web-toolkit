@@ -5,7 +5,7 @@ import UrlEncode from '@/features/url-encode/url-encode.component'
 // types
 import { ViewMenuType } from '@/types/ViewMenuType'
 // scripts
-import fetchMenuData from '@/utils/fetchMenuData'
+import fetchMenuData from '@/utils/api/fetchMenuData'
 
 export const dynamic = 'force-dynamic'
 

@@ -12,7 +12,7 @@ export default class {
     }
 
     public async fetchMenuList(): Promise<ViewMenuType[]> {
-        const query = await this.dbManager.readFile(process.cwd() + '/src/services/fetch/menu-list/queries/selectMenuList.sql')
+        const query = await this.dbManager.readFile(process.cwd() + '/src/sql/selectMenuList.sql')
         const result = await this.dbManager.select(query)
         const viewMenuModel: ViewMenuType[] = result as ViewMenuType[]
         return viewMenuModel

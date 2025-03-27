@@ -1,3 +1,10 @@
+// ApiRequestType
+export type ApiRequestType<T = {}> = T
+export const initApiRequestType = <T = {}>(): ApiRequestType<T> => {
+    return {} as ApiRequestType<T>
+}
+
+// ApiResponseType
 export type ApiResponseType<T = {}> = {
     message: string,
     code: number,

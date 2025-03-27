@@ -1,3 +1,4 @@
+// ViewMenuType
 export type ViewMenuType = {
     menu_id: number,
     app_name: string,
