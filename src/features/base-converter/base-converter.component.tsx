@@ -95,7 +95,6 @@ export default () => {
         if (inputValue === '') {
             setInputDataList((prevInputDataList) => {
                 const tempInputDataList = { ...prevInputDataList }
-
                 Object.keys(tempInputDataList).forEach((baseType) => {
                     tempInputDataList[baseType].inputConfig.inputValue = ''
                     tempInputDataList[baseType].inputConfig.helperMessage = String(tempInputDataList[baseType].inputConfig.inputValue.length) + ' 桁'
@@ -103,7 +102,6 @@ export default () => {
                 })
                 return tempInputDataList
             })
-
         } else {
             const isError = isNaN(decimalValue)
             if(isError) {
@@ -119,14 +117,11 @@ export default () => {
                         }
                     }
                 }))
-
             } else {
                 setInputDataList((prevInputDataList) => {
                     const tempInputDataList = { ...prevInputDataList }
-
                     Object.keys(tempInputDataList).forEach((baseType) => {
                         const baseValue = decimalValue.toString(tempInputDataList[baseType].params.radix)
-
                         tempInputDataList[baseType].inputConfig.inputValue = baseType === 'hexadecimal' ? baseValue.toUpperCase() : baseValue
                         tempInputDataList[baseType].inputConfig.helperMessage = String(tempInputDataList[baseType].inputConfig.inputValue.length) + ' 桁',
                         tempInputDataList[baseType].inputConfig.isError = false

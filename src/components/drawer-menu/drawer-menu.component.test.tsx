@@ -6,7 +6,6 @@ import userEvent from '@testing-library/user-event'
 import { DrawerMenu, Handler } from './drawer-menu.component'
 import type { ViewMenuType } from '@/types/ViewMenuType'
 
-// モックメニュー
 const menuData: ViewMenuType[] = [
     {
         menu_id: 1,

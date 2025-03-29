@@ -53,10 +53,14 @@ export default () => {
     })
 
     const urlEncordOrDecord = (value: string, selectedCheckedToggle: string) => {
-        if (selectedCheckedToggle === 'encord') {
-            return encodeURIComponent(value)
-        } else {
-            return decodeURIComponent(value)
+        try {
+            if (selectedCheckedToggle === 'encord') {
+                return encodeURIComponent(value)
+            } else {
+                return decodeURIComponent(value)
+            }
+        } catch (error: unknown) {
+            return value
         }
     }
 
@@ -64,7 +68,11 @@ export default () => {
      * トグルボタン
      * @event
      */
-    const handleChangeToggleButton = (event: React.MouseEvent<HTMLElement>, selectedCheckedToggle: string) => {
+    const handleChangeToggleButton = (event: React.MouseEvent<HTMLElement>, selectedCheckedToggle: string | null) => {
+        // 選択が解除された場合、解除しないように処理をスキップする
+        if (selectedCheckedToggle === null) {
+            return
+        }
         setCheckedToggle(selectedCheckedToggle)
 
         const result: string = urlEncordOrDecord(textareaDataList.input.textareaConfig.inputValue, selectedCheckedToggle)
