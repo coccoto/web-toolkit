@@ -1,7 +1,7 @@
 // components
 import Main from '@/components/main/main.component'
 // features
-import BaseConverter from '@/features/base-converter/base-converter.component'
+import ConvertBase from '@/features/convert-base/convert-base.component'
 // types
 import { ViewMenuType } from '@/types/ViewMenuType'
 // scripts
@@ -15,7 +15,7 @@ export default async () => {
 
     return (
         <Main
-            children={<BaseConverter></BaseConverter>}
+            children={<ConvertBase></ConvertBase>}
             menuData={menuData}
         ></Main>
     )

@@ -3,7 +3,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 // components
-import BaseConverter from './base-converter.component'
+import ConvertBase from './convert-base.component'
 
 const user = userEvent.setup()
 
@@ -14,10 +14,10 @@ const getInputs = () => ({
     hexInput: screen.getByLabelText('16 進数'),
 })
 
-describe('base-converter.component', () => {
+describe('convert-base.component', () => {
 
     it('2 進数に値を入力した時、他の進数に適切な値が入力されること', async () => {
-        render(<BaseConverter></BaseConverter>)
+        render(<ConvertBase></ConvertBase>)
 
         const { binaryInput, octalInput, decimalInput, hexInput } = getInputs()
 
@@ -41,7 +41,7 @@ describe('base-converter.component', () => {
     })
 
     it('8 進数に値を入力した時、他の進数に適切な値が入力されること', async () => {
-        render(<BaseConverter></BaseConverter>)
+        render(<ConvertBase></ConvertBase>)
 
         const { binaryInput, octalInput, decimalInput, hexInput } = getInputs()
     
@@ -65,7 +65,7 @@ describe('base-converter.component', () => {
     })
 
     it('10 進数に値を入力した時、他の進数に適切な値が入力されること', async () => {
-        render(<BaseConverter></BaseConverter>)
+        render(<ConvertBase></ConvertBase>)
 
         const { binaryInput, octalInput, decimalInput, hexInput } = getInputs()
     
@@ -89,7 +89,7 @@ describe('base-converter.component', () => {
     })
 
     it('16 進数に値を入力した時、他の進数に適切な値が入力されること', async () => {
-        render(<BaseConverter></BaseConverter>)
+        render(<ConvertBase></ConvertBase>)
 
         const { binaryInput, octalInput, decimalInput, hexInput } = getInputs()
     
@@ -113,7 +113,7 @@ describe('base-converter.component', () => {
     })
 
     it('不整値を入力した時、警告メッセージが表示されること。正しい値を入力後、警告メッセージが表示されなくなること', async () => {
-        render(<BaseConverter></BaseConverter>)
+        render(<ConvertBase></ConvertBase>)
 
         const { binaryInput, octalInput, decimalInput, hexInput } = getInputs()
     
@@ -136,7 +136,7 @@ describe('base-converter.component', () => {
     })
 
     it('空文字を入力した時、他の全ての項目が空になること', async () => {
-        render(<BaseConverter></BaseConverter>)
+        render(<ConvertBase></ConvertBase>)
 
         const { binaryInput, octalInput, decimalInput, hexInput } = getInputs()
 

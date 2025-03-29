@@ -5,7 +5,7 @@ import React from 'react'
 // components
 import { InputField, InputConfigType } from '@/components/input-field/input-field.component'
 // styles
-import styles from '@/features/base-converter/base-converter.module.sass'
+import styles from '@/features/convert-base/convert-base.module.sass'
 
 type InputDataListType = {
     [key in string]: {
