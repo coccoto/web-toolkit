@@ -19,7 +19,7 @@ export default (props: Props):React.JSX.Element  => {
     }
 
     return (
-        <div className={styles['container']}>
+        <div data-testid="readonly-chip.component" className={styles['container']}>
             <Chip
                 className={styles['chip']}
                 color='warning'

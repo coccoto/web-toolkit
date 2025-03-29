@@ -50,6 +50,7 @@ export const Textarea = (props: Props):React.JSX.Element  => {
                 )}
             </div>
             <TextareaAutosize
+                data-testid='textarea'
                 minRows={10}
                 id={props.textareaConfig.componentId}
                 className={styles[props.textareaConfig.isError ? 'textarea--error' : 'textarea']}
@@ -61,7 +62,7 @@ export const Textarea = (props: Props):React.JSX.Element  => {
                 onInput={handleInput}
             >
             </TextareaAutosize>
-            <div className={styles[props.textareaConfig.isError ? 'helper-text--error' : 'helper-text']}>
+            <div data-testid='helper-text' className={styles[props.textareaConfig.isError ? 'helper-text--error' : 'helper-text']}>
                 {props.textareaConfig.isError ? props.textareaConfig.errorMessage : props.textareaConfig.helperMessage}
             </div>
         </div>
