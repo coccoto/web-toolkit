@@ -1,6 +1,8 @@
+// test
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import React from 'react'
+import { render, screen  } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+// components
 import { DrawerMenu, Handler } from './drawer-menu.component'
 import type { ViewMenuType } from '@/types/ViewMenuType'
 
@@ -32,7 +34,7 @@ const menuData: ViewMenuType[] = [
 
 describe('drawer-menu.component', () => {
 
-    it('isOpenDrawerMenu: false - 処理が適切であること', () => {
+    it('isOpenDrawerMenu: false の時の処理が適切であること', () => {
         render(
             <DrawerMenu
                 isOpenDrawerMenu={false}
@@ -50,7 +52,7 @@ describe('drawer-menu.component', () => {
         // category_type: 2
         expect(screen.getAllByText('app_name_2')).toHaveLength(1)
     })
-    it('isOpenDrawerMenu: true - 処理が適切であること', () => {
+    it('isOpenDrawerMenu: true の時の処理が適切であること', () => {
         render(
             <DrawerMenu
                 isOpenDrawerMenu={true}
@@ -68,7 +70,7 @@ describe('drawer-menu.component', () => {
         expect(screen.getAllByText('app_name_2')).toHaveLength(2)
     })
 
-    it('menuData: [] - 処理が適切であること', () => {
+    it('menuData: [] の時の処理が適切であること', () => {
         render(
             <DrawerMenu
                 isOpenDrawerMenu={true}

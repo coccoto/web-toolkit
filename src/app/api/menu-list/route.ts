@@ -18,7 +18,7 @@ const apiResponse: ApiResponseType<ViewMenuType[]> = initApiResponseType<ViewMen
 export async function POST(request: NextRequest): Promise<NextResponse> {
     try {
         await dbManager.connect()
-        const requestBody = await request.json() as RequestBody
+        // const requestBody = await request.json() as RequestBody
 
         // Service を初期化する
         const menuListService = new MenuListService(dbManager)

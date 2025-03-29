@@ -24,16 +24,16 @@ const props = {
 
 describe('textarea.component', () => {
 
-    it('props.textareaConfig.isError: false - 処理が適切であること', () => {
+    it('isError: false の時の処理が適切であること', () => {
         render(<Textarea {...props}></Textarea>)
 
         // エラーメッセージが表示されないこと
         expect(screen.queryByText('errorMessage_1')).not.toBeInTheDocument()
         // 適切なクラスが付与されていること
-        expect(screen.getByTestId('textarea')).toHaveClass(styles['textarea'])
+        expect(screen.getByLabelText('label_1')).toHaveClass(styles['textarea'])
         expect(screen.getByTestId('helper-text')).toHaveClass(styles['helper-text'])
     })
-    it('props.textareaConfig.isError: true - 処理が適切であること', () => {
+    it('isError: true の時の処理が適切であること', () => {
         const errorProps = {
             ...props,
             textareaConfig: {
@@ -46,17 +46,17 @@ describe('textarea.component', () => {
         // エラーメッセージが表示されること
         expect(screen.getByText('errorMessage_1')).toBeInTheDocument()
         // 適切なクラスが付与されていること
-        expect(screen.getByTestId('textarea')).toHaveClass(styles['textarea--error'])
+        expect(screen.getByLabelText('label_1')).toHaveClass(styles['textarea--error'])
         expect(screen.getByTestId('helper-text')).toHaveClass(styles['helper-text--error'])
     })
 
-    it('props.textareaConfig.isDisabled: false - 処理が適切であること', () => {
+    it('isDisabled: false の時の処理が適切であること', () => {
         render(<Textarea {...props}></Textarea>)
 
         // 読み取り専用チップが表示されないこと
         expect(screen.queryByTestId('readonly-chip.component')).not.toBeInTheDocument()
     })
-    it('props.textareaConfig.isDisabled: true - 処理が適切であること', () => {
+    it('isDisabled: true の時の処理が適切であること', () => {
         const disabledProps = {
             ...props,
             textareaConfig: {

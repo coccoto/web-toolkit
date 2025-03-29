@@ -44,13 +44,14 @@ export const Textarea = (props: Props):React.JSX.Element  => {
     return (
         <div className={styles['container']}>
             <div className={styles['label-wrapper']}>
-                <div className={styles['textarea-label']}>{props.textareaConfig.label}</div>
+                <label htmlFor={props.textareaConfig.componentId} className={styles['textarea-label']}>
+                    {props.textareaConfig.label}
+                </label>
                 {props.textareaConfig.isDisabled && (
                     <ReadonlyChip handleClick={() => {}} />
                 )}
             </div>
             <TextareaAutosize
-                data-testid='textarea'
                 minRows={10}
                 id={props.textareaConfig.componentId}
                 className={styles[props.textareaConfig.isError ? 'textarea--error' : 'textarea']}

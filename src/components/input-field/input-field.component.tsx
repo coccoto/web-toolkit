@@ -45,7 +45,9 @@ export const InputField = (props: Props):React.JSX.Element  => {
     return (
         <div className={styles['container']}>
             <div className={styles['label-wrapper']}>
-                <div className={styles['input-label']}>{props.inputConfig.label}</div>
+                <label htmlFor={props.inputConfig.componentId} className={styles['input-label']}>
+                    {props.inputConfig.label}
+                </label>
                 {props.inputConfig.isDisabled && (
                     <ReadonlyChip handleClick={() => {}}></ReadonlyChip>
                 )}

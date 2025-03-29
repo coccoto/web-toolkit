@@ -24,13 +24,13 @@ const props = {
 
 describe('input-field.component', () => {
 
-    it('props.InputConfigType.isError: false - 処理が適切であること', () => {
+    it('isError: false の時の処理が適切であること', () => {
         render(<InputField {...props}></InputField>)
 
         // エラーメッセージが表示されないこと
         expect(screen.queryByText('errorMessage_1')).not.toBeInTheDocument()
     })
-    it('props.InputConfigType.isError: true - 処理が適切であること', () => {
+    it('isError: true の時の処理が適切であること', () => {
         const errorProps = {
             ...props,
             inputConfig: {
@@ -44,13 +44,13 @@ describe('input-field.component', () => {
         expect(screen.getByText('errorMessage_1')).toBeInTheDocument()
     })
 
-    it('props.textareaConfig.isDisabled: false - 処理が適切であること', () => {
+    it('isDisabled: false の時の処理が適切であること', () => {
         render(<InputField {...props}></InputField>)
 
         // 読み取り専用チップが表示されないこと
         expect(screen.queryByTestId('readonly-chip.component')).not.toBeInTheDocument()
     })
-    it('props.textareaConfig.isDisabled: true - 処理が適切であること', () => {
+    it('isDisabled: true の時の処理が適切であること', () => {
         const disabledProps = {
             ...props,
             inputConfig: {
