@@ -1,7 +1,7 @@
 // components
 import Main from '@/components/main/main.component'
 // features
-import UrlEncode from '@/features/url-encode/url-encode.component'
+import UrlEncode from '@/features/url-encode/url-encode'
 // types
 import { MenuType } from '@/types/MenuType'
 // lib

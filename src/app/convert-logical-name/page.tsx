@@ -1,7 +1,7 @@
 // components
 import Main from '@/components/main/main.component'
 // features
-import ConvertLogicalName from '@/features/convert-logical-name/convert-logical-name.component'
+import ConvertLogicalName from '@/features/convert-logical-name/convert-logical-name'
 // types
 import { MenuType } from '@/types/MenuType'
 // lib

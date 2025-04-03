@@ -1,7 +1,7 @@
 // components
 import Main from '@/components/main/main.component'
 // features
-import ConvertBase from '@/features/convert-base/convert-base.component'
+import ConvertBase from '@/features/convert-base/convert-base'
 // types
 import { MenuType } from '@/types/MenuType'
 // lib

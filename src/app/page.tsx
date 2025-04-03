@@ -1,7 +1,7 @@
 // components
 import Main from '@/components/main/main.component'
 // features
-import Index from '@/features/index/index.component'
+import Index from '@/features/index'
 // types
 import { MenuType } from '@/types/MenuType'
 // lib
