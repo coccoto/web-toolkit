@@ -12,6 +12,7 @@ import { LogicalNameCandidate } from '@/types/OpenApiType'
 
 type RequestBody = ApiRequestType<{
     logicalName: string
+    convertType: 0 | 1
 }>
 
 const apiResponse: ApiResponseType<LogicalNameCandidate> = initApiResponseType<LogicalNameCandidate>()
@@ -23,7 +24,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
         // Service を初期化する
         const openApiService = new OpenApiService()
-        const result = await openApiService.convertLogicalName(requestBody.logicalName)
+        const result = await openApiService.convertLogicalName(requestBody.logicalName, requestBody.convertType)
 
         apiResponse.result = result
         apiResponse.code = 200

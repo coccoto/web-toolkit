@@ -44,7 +44,7 @@ export default () => {
                 helperMessage: '',
                 errorMessage: '',
                 inputValue: '',
-                isDisabled: true,
+                isDisabled: false,
                 isError: false,
             },
             params: {

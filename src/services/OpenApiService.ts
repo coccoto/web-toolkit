@@ -15,8 +15,8 @@ export default class {
         this.openai = new OpenAI({ apiKey: process.env['OPEN_AI_API_KEY'] })
     }
 
-    public async convertLogicalName(logicalName: string): Promise<LogicalNameCandidate> {
-        const response = await this.fetchOpenAi(createNameSuggestionPrompt(logicalName))
+    public async convertLogicalName(logicalName: string, convertType: 0 | 1): Promise<LogicalNameCandidate> {
+        const response = await this.fetchOpenAi(createNameSuggestionPrompt(logicalName, convertType))
 
         try {
             return JSON.parse(response) as LogicalNameCandidate

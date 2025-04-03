@@ -24,7 +24,7 @@ export default () => {
         inputConfig: {
             componentId: 'logicalName',
             type: 'text',
-            label: '論理名',
+            label: '論理名称',
             placeholder: 'ユーザーコード',
             helperMessage: '',
             errorMessage: '',
@@ -44,7 +44,7 @@ export default () => {
                 helperMessage: '',
                 errorMessage: '',
                 inputValue: '',
-                isDisabled: true,
+                isDisabled: false,
                 isError: false,
             }
         }))
@@ -69,8 +69,8 @@ export default () => {
         }))
     }
 
-    const handleClickIconButton = async () => {
-        const result: LogicalNameCandidate = await fetchConvertLogicalName(inputSourceData.inputConfig.inputValue)
+    const handleClickIconButton = async (convertType: 0 | 1) => {
+        const result: LogicalNameCandidate = await fetchConvertLogicalName(inputSourceData.inputConfig.inputValue, convertType)
 
         const newInputOutputDataList = inputOutputDataList.map((inputData, index) => ({
             ...inputData,
@@ -85,7 +85,7 @@ export default () => {
     return (
         <div className={styles['container']}>
             <div>
-                <h2 className={styles['section-header']}>データベース物理名命名ツール</h2>
+                <h2 className={styles['section-header']}>データベース物理名称命名ツール</h2>
             </div>
             <div className={styles['main-container']}>
                 <div className={styles['main-wrapper']}>
@@ -101,13 +101,13 @@ export default () => {
                             color={'info'}
                             buttonName={'テーブル名を変換'}
                             iconNode={<SouthIcon></SouthIcon>}
-                            handleClickButton={handleClickIconButton}
+                            handleClickButton={() => {handleClickIconButton(0)}}
                         ></IconButton>
                         <IconButton
                             color={'info'}
                             buttonName={'カラム名を変換'}
                             iconNode={<SouthIcon></SouthIcon>}
-                            handleClickButton={handleClickIconButton}
+                            handleClickButton={() => {handleClickIconButton(1)}}
                         ></IconButton>
                     </div>
                 </div>
