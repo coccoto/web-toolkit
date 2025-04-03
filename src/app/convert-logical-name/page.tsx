@@ -1,7 +1,7 @@
 // components
 import Main from '@/components/main/main.component'
 // features
-import ConvertLogicalName from '@/features/convert-logical-name/convert-logical-name'
+import ServerConvertLogicalName from '@/features/convert-logical-name/server.convert-logical-name'
 // types
 import { MenuType } from '@/types/MenuType'
 // lib
@@ -15,7 +15,7 @@ export default async () => {
 
     return (
         <Main
-            children={<ConvertLogicalName></ConvertLogicalName>}
+            children={<ServerConvertLogicalName></ServerConvertLogicalName>}
             menuList={menuList}
         ></Main>
     )

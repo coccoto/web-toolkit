@@ -12,7 +12,7 @@ import { LogicalNameCandidate } from '@/types/OpenApiType'
 // @mui
 import SouthIcon from '@mui/icons-material/South'
 // styles
-import styles from '@/features/convert-logical-name/convert-logical-name.module.sass'
+import styles from '@/features/convert-logical-name/client.convert-logical-name.module.sass'
 
 type InputDataListType = {
     inputConfig: InputConfigType,
@@ -84,9 +84,6 @@ export default () => {
 
     return (
         <div className={styles['container']}>
-            <div>
-                <h2 className={styles['section-header']}>DB 物理名称命名ツール</h2>
-            </div>
             <div className={styles['main-container']}>
                 <div className={styles['main-wrapper']}>
                     <InputField
@@ -112,7 +109,7 @@ export default () => {
                     </div>
                 </div>
                 <div className={styles['main-wrapper']}>
-                    <h3 className={styles['sub-section-header']}>命名候補</h3>
+                    <h3 className={styles['sub-header']}>命名候補</h3>
                     {inputOutputDataList.map((inputData, index) => (
                         <InputField
                             key={inputData.inputConfig.componentId}
