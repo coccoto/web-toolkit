@@ -20,6 +20,7 @@ const apiResponse: ApiResponseType<MenuType> = initApiResponseType<MenuType>()
 export async function GET(request: NextRequest, { params }: PathParams): Promise<NextResponse> {
     try {
         await dbManager.connect()
+        params = await params
 
         // Service を初期化する
         const menuListService = new MenuListService()

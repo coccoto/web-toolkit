@@ -95,13 +95,13 @@ export default () => {
                     ></InputField>
                     <div className={styles['button-wrapper']}>
                         <IconButton
-                            color={'info'}
+                            color={'success'}
                             buttonName={'テーブル名を変換'}
                             iconNode={<SouthIcon></SouthIcon>}
                             handleClickButton={() => {handleClickIconButton(0)}}
                         ></IconButton>
                         <IconButton
-                            color={'info'}
+                            color={'success'}
                             buttonName={'カラム名を変換'}
                             iconNode={<SouthIcon></SouthIcon>}
                             handleClickButton={() => {handleClickIconButton(1)}}
