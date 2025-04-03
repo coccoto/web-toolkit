@@ -5,7 +5,7 @@ import React from 'react'
 // components
 import { InputField, InputConfigType } from '@/components/input-field/input-field.component'
 // styles
-import styles from '@/features/convert-base/convert-base.module.sass'
+import styles from '@/features/convert-base/client.convert-base.module.sass'
 
 type InputDataListType = {
     [key in string]: {
@@ -136,9 +136,6 @@ export default () => {
 
     return (
         <div className={styles['container']}>
-            <div>
-                <h2 className={styles['section-header']}>進数変換</h2>
-            </div>
             <div className={styles['main-wrapper']}>
                 <div className={styles['card-wrapper']}>
                     {Object.keys(inputDataList).map((baseType) => {

@@ -1,7 +1,7 @@
 // components
 import Main from '@/components/main/main.component'
 // features
-import UrlEncode from '@/features/url-encode/url-encode'
+import ServerUrlEncode from '@/features/url-encode/server.url-encode'
 // types
 import { MenuType } from '@/types/MenuType'
 // lib
@@ -15,7 +15,7 @@ export default async () => {
 
     return (
         <Main
-            children={<UrlEncode></UrlEncode>}
+            children={<ServerUrlEncode></ServerUrlEncode>}
             menuList={menuList}
         ></Main>
     )

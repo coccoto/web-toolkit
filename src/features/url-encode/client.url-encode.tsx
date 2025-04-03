@@ -8,7 +8,7 @@ import { Textarea, TextareaConfigType } from '@/components/textarea/textarea.com
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
 // styles
-import styles from '@/features/url-encode/url-encode.module.sass'
+import styles from '@/features/url-encode/client.url-encode.module.sass'
 
 type TextareaDataListType = {
     [key in string]: {
@@ -123,9 +123,6 @@ export default () => {
 
     return (
         <div className={styles['container']}>
-            <div>
-                <h2 className={styles['section-header']}>URL エンコード・デコード</h2>
-            </div>
             <div className={styles['main-wrapper']}>
                 <div className={styles['card-wrapper']}>
                     <ToggleButtonGroup

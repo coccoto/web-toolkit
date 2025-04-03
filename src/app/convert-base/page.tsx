@@ -1,7 +1,7 @@
 // components
 import Main from '@/components/main/main.component'
 // features
-import ConvertBase from '@/features/convert-base/convert-base'
+import ServerConvertBase from '@/features/convert-base/server.convert-base'
 // types
 import { MenuType } from '@/types/MenuType'
 // lib
@@ -15,7 +15,7 @@ export default async () => {
 
     return (
         <Main
-            children={<ConvertBase></ConvertBase>}
+            children={<ServerConvertBase></ServerConvertBase>}
             menuList={menuList}
         ></Main>
     )

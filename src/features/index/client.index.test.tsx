@@ -3,7 +3,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 // components
-import Index from '.'
+import Index from './client.index'
 import type { MenuType } from '@/types/MenuType'
 
 const menuList: MenuType[] = [

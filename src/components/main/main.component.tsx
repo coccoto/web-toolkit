@@ -3,7 +3,7 @@
 // react
 import React from 'react'
 // components
-import Header from '@/components/header/header.component'
+import AppBar from '@/components/app-bar/app-bar.component'
 import Footer from '@/components/footer/footer.component'
 import { DrawerMenu, Handler } from '@/components/drawer-menu/drawer-menu.component'
 // types
@@ -34,7 +34,7 @@ export default (props: Props) => {
 
     return (
         <div className={styles['container']}>
-            <Header handleClickMenuButton={handleClickMenuButton}></Header>
+            <AppBar handleClickMenuButton={handleClickMenuButton}></AppBar>
             <div className={styles['main-wrapper']}>
                 <DrawerMenu
                     isOpenDrawerMenu={isOpenDrawerMenu}

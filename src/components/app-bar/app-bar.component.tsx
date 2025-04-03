@@ -1,7 +1,7 @@
 // react
 import React from 'react'
 // styles
-import styles from '@/components/header/header.module.sass'
+import styles from '@/components/app-bar/app-bar.module.sass'
 // @mui
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'

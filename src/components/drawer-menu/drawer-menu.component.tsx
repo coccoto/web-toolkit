@@ -44,15 +44,15 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
         if (props.menuList === null || props.menuList === undefined || Object.keys(props.menuList).length === 0) {
             return
         }
-        const section1Data = props.menuList.filter((item) => item.category_type === 1)
-        const section2Data = props.menuList.filter((item) => item.category_type === 2)
+        const sectionData_1 = props.menuList.filter((item) => item.category_type === 1)
+        const sectionData_2 = props.menuList.filter((item) => item.category_type === 2)
 
         return (
             <List className={styles['menu-wrapper']}>
                 <div>
                     <ListSubheader color={'inherit'} className={styles['menu-header']}>Tools</ListSubheader>
                     <Divider></Divider>
-                    {section1Data.map((item) => (
+                    {sectionData_1.map((item) => (
                         <ListItem disablePadding key={item.menu_id}>
                             <ListItemButton className={styles['menu-item']} href={item.path}>
                                 {item.feature_name}
@@ -63,7 +63,7 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
                 <div>
                     <ListSubheader color={'inherit'} className={styles['menu-header']}>Others</ListSubheader>
                     <Divider></Divider>
-                    {section2Data.map((item) => (
+                    {sectionData_2.map((item) => (
                         <ListItem disablePadding key={item.menu_id}>
                             <ListItemButton className={styles['menu-item']} href={item.origin + item.path}>
                                 {item.app_name}

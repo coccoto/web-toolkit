@@ -1,7 +1,7 @@
 // components
 import Main from '@/components/main/main.component'
 // features
-import Index from '@/features/index'
+import ServerIndex from '@/features/index/server.index'
 // types
 import { MenuType } from '@/types/MenuType'
 // lib
@@ -15,7 +15,7 @@ export default async () => {
 
     return (
         <Main
-            children={<Index menuList={menuList}></Index>}
+            children={<ServerIndex menuList={menuList}></ServerIndex>}
             menuList={menuList}
         ></Main>
     )

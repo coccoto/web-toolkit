@@ -3,7 +3,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 // components
-import ConvertBase from './convert-base'
+import ConvertBase from './client.convert-base'
 
 const user = userEvent.setup()
 
