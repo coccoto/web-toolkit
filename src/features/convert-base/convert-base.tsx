@@ -139,8 +139,8 @@ export default () => {
             <div>
                 <h2 className={styles['section-header']}>進数変換</h2>
             </div>
-            <div className={styles['main-container']}>
-                <div className={styles['main-wrapper']}>
+            <div className={styles['main-wrapper']}>
+                <div className={styles['card-wrapper']}>
                     {Object.keys(inputDataList).map((baseType) => {
                         const inputData = inputDataList[baseType]
                         return (

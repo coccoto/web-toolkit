@@ -84,8 +84,8 @@ export default () => {
 
     return (
         <div className={styles['container']}>
-            <div className={styles['main-container']}>
-                <div className={styles['main-wrapper']}>
+            <div className={styles['main-wrapper']}>
+                <div className={styles['card-wrapper']}>
                     <InputField
                         key={inputSourceData.inputConfig.componentId}
                         inputConfig={inputSourceData.inputConfig}
@@ -108,7 +108,7 @@ export default () => {
                         ></IconButton>
                     </div>
                 </div>
-                <div className={styles['main-wrapper']}>
+                <div className={styles['card-wrapper']}>
                     <h3 className={styles['sub-header']}>命名候補</h3>
                     {inputOutputDataList.map((inputData, index) => (
                         <InputField
