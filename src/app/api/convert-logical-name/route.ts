@@ -1,20 +1,20 @@
 // next
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-// @coccoto
-import { DBManager } from '@coccoto/node-dbmanager'
-import { logger } from '@coccoto/node-logmanager'
+// lib
+import { dbManager } from '@/lib/dbManager'
+import { logger } from '@/lib/logger'
 // service
 import OpenApiService from '@/services/OpenApiService'
 // types
 import { ApiRequestType, ApiResponseType, initApiResponseType } from '@/types/ApiType'
+import { LogicalNameCandidate } from '@/types/OpenApiType'
 
 type RequestBody = ApiRequestType<{
     logicalName: string
 }>
 
-const dbManager = new DBManager()
-const apiResponse: ApiResponseType<string> = initApiResponseType<string>()
+const apiResponse: ApiResponseType<LogicalNameCandidate> = initApiResponseType<LogicalNameCandidate>()
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
     try {
@@ -22,20 +22,21 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         const requestBody = await request.json() as RequestBody
 
         // Service を初期化する
-        const openApiService = new OpenApiService(dbManager)
+        const openApiService = new OpenApiService()
+        const result = await openApiService.convertLogicalName(requestBody.logicalName)
 
-        apiResponse.result = await openApiService.convertLogicalName(requestBody.logicalName)
+        apiResponse.result = result
         apiResponse.code = 200
         apiResponse.message = 'success'
 
-        logger.info('[/api/convert-name] route is complete.')
+        logger.info('[/api/convert-logical-name] route is complete.')
         return NextResponse.json({ ...apiResponse })
 
     } catch (error: unknown) {
         apiResponse.code = 500
         apiResponse.message = 'error'
 
-        logger.error('An error occurred in [/api/convert-name] route. Error: ' + (error as Error).message)
+        logger.error('An error occurred in [/api/convert-logical-name] route. Error: ' + (error as Error).message)
         return NextResponse.json({ ...apiResponse })
 
     } finally {

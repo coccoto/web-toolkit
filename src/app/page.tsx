@@ -5,7 +5,7 @@ import Index from '@/features/index/index.component'
 // types
 import { ViewMenuType } from '@/types/ViewMenuType'
 // scripts
-import fetchMenuData from '@/utils/api/fetchMenuData'
+import fetchMenuData from '@/lib/api/fetchMenuData'
 
 export const dynamic = 'force-dynamic'
 

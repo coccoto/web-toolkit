@@ -1,24 +1,29 @@
-// @coccoto
-import { DBManager } from '@coccoto/node-dbmanager'
 // openai
 import OpenAI from 'openai'
 // utils
 import { createNameSuggestionPrompt } from '@/utils/prompts/convertLogicalNamePrompt'
+// types
+import { LogicalNameCandidate } from '@/types/OpenApiType'
 
 export default class {
 
-    private dbManager: DBManager
     private model: string
     private openai: OpenAI
 
-    constructor(dbManager: DBManager) {
-        this.dbManager = dbManager
+    constructor() {
         this.model = 'gpt-4o-mini-2024-07-18'
-        this.openai = new OpenAI({ apiKey: process.env['API_KEY'] })
+        this.openai = new OpenAI({ apiKey: process.env['OPEN_AI_API_KEY'] })
     }
 
-    public async convertLogicalName(logicalName: string): Promise<string> {
-        return await this.fetchOpenAi(createNameSuggestionPrompt(logicalName))
+    public async convertLogicalName(logicalName: string): Promise<LogicalNameCandidate> {
+        const response = await this.fetchOpenAi(createNameSuggestionPrompt(logicalName))
+
+        try {
+            return JSON.parse(response) as LogicalNameCandidate
+
+        } catch (error: any) {
+            throw new Error(`JSON parse error: ${error.message}. response = ${response}`)
+        }
     }
 
     private async fetchOpenAi(messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[]): Promise<string> {

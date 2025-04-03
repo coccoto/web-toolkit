@@ -31,7 +31,6 @@ export default () => {
             },
             params: {
                 radix: 2,
-
             }
         },
         octal: {
@@ -48,7 +47,6 @@ export default () => {
             },
             params: {
                 radix: 8,
-
             }
         },
         decimal: {
@@ -65,7 +63,6 @@ export default () => {
             },
             params: {
                 radix: 10,
-
             }
         },
         hexadecimal: {
@@ -82,12 +79,17 @@ export default () => {
             },
             params: {
                 radix: 16,
-
             }
         },
     })
 
-    const handleInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const handleClickInputField = (event: React.MouseEvent<HTMLInputElement>): void => {
+    }
+
+    const handleBlurInputField = (event: React.FocusEvent<HTMLInputElement>): void => {
+    }
+
+    const handleInputInputField = (event: React.ChangeEvent<HTMLInputElement>): void => {
         const elemInput = event.target
         const inputValue = elemInput.value
         const decimalValue: number = parseInt(inputValue, inputDataList[elemInput.id].params.radix)
@@ -132,30 +134,26 @@ export default () => {
         }
     }
 
-    const handleClick = (event: React.MouseEvent<HTMLInputElement>): void => {
-    }
-
-    const handleBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
-    }
-
     return (
         <div className={styles['container']}>
             <div>
-                <h2 className={styles['feature-header']}>進数変換</h2>
+                <h2 className={styles['section-header']}>進数変換</h2>
             </div>
-            <div className={styles['main-wrapper']}>
-                {Object.keys(inputDataList).map((baseType) => {
-                    const inputData = inputDataList[baseType]
-                    return (
-                        <InputField
-                            key={inputData.inputConfig.componentId}
-                            inputConfig={inputData.inputConfig}
-                            handleClick={handleClick}
-                            handleBlur={handleBlur}
-                            handleInput={handleInput}
-                        ></InputField>
-                    )
-                })}
+            <div className={styles['main-container']}>
+                <div className={styles['main-wrapper']}>
+                    {Object.keys(inputDataList).map((baseType) => {
+                        const inputData = inputDataList[baseType]
+                        return (
+                            <InputField
+                                key={inputData.inputConfig.componentId}
+                                inputConfig={inputData.inputConfig}
+                                handleClick={handleClickInputField}
+                                handleBlur={handleBlurInputField}
+                                handleInput={handleInputInputField}
+                            ></InputField>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )

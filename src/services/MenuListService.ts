@@ -1,19 +1,15 @@
-// @coccoto
-import { DBManager } from '@coccoto/node-dbmanager'
+// lib
+import { dbManager } from '@/lib/dbManager'
 // types
 import { ViewMenuType } from '@/types/ViewMenuType'
 
 export default class {
 
-    private dbManager: DBManager
-
-    constructor(dbManager: DBManager) {
-        this.dbManager = dbManager
-    }
+    constructor() {}
 
     public async fetchMenuList(): Promise<ViewMenuType[]> {
-        const sql = await this.dbManager.readFile(process.cwd() + '/src/sql/selectMenuList.sql')
-        const result = await this.dbManager.select(sql)
+        const sql = await dbManager.readFile(process.cwd() + '/src/sql/selectMenuList.sql')
+        const result = await dbManager.select(sql)
         const viewMenuModel: ViewMenuType[] = result as ViewMenuType[]
         return viewMenuModel
     }

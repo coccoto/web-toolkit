@@ -52,7 +52,7 @@ export default (props: Props) => {
     return (
         <div className={styles['container']}>
             <div>
-                <h2 className={styles['feature-header']}>Tools</h2>
+                <h2 className={styles['section-header']}>Tools</h2>
             </div>
             {elemCard()}
         </div>

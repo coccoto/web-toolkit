@@ -86,13 +86,18 @@ export default () => {
                 }
             }
         }))
-
     }
 
     /**
      * テキストエリア
      * @event
      */
+    const handleClickTextarea = (event: React.MouseEvent<HTMLTextAreaElement>): void => {
+    }
+
+    const handleBlurTextarea = (event: React.FocusEvent<HTMLTextAreaElement>): void => {
+    }
+
     const handleInputTextarea = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
         const elemTextarea = event.currentTarget
 
@@ -116,40 +121,36 @@ export default () => {
         }))
     }
 
-    const handleClickTextarea = (event: React.MouseEvent<HTMLTextAreaElement>): void => {
-    }
-
-    const handleBlurTextarea = (event: React.FocusEvent<HTMLTextAreaElement>): void => {
-    }
-
     return (
         <div className={styles['container']}>
             <div>
-                <h2 className={styles['feature-header']}>URL エンコード・デコード</h2>
+                <h2 className={styles['section-header']}>URL エンコード・デコード</h2>
             </div>
-            <div className={styles['main-wrapper']}>
-                <ToggleButtonGroup
-                    color={'info'}
-                    value={checkedToggle}
-                    exclusive
-                onChange={handleChangeToggleButton}>
-                    <ToggleButton value='encord'>エンコード</ToggleButton>
-                    <ToggleButton value="decord">デコード</ToggleButton>
-                </ToggleButtonGroup>
-                <Textarea
-                    key={textareaDataList.input.textareaConfig.componentId}
-                    textareaConfig={textareaDataList.input.textareaConfig}
-                    handleClick={handleClickTextarea}
-                    handleBlur={handleBlurTextarea}
-                    handleInput={handleInputTextarea}
-                ></Textarea>
-                <Textarea
-                    key={textareaDataList.output.textareaConfig.componentId}
-                    textareaConfig={textareaDataList.output.textareaConfig}
-                    handleClick={handleClickTextarea}
-                    handleBlur={handleBlurTextarea}
-                    handleInput={handleInputTextarea}
-                ></Textarea>
+            <div className={styles['main-container']}>
+                <div className={styles['main-wrapper']}>
+                    <ToggleButtonGroup
+                        color={'info'}
+                        value={checkedToggle}
+                        exclusive
+                    onChange={handleChangeToggleButton}>
+                        <ToggleButton value='encord'>エンコード</ToggleButton>
+                        <ToggleButton value="decord">デコード</ToggleButton>
+                    </ToggleButtonGroup>
+                    <Textarea
+                        key={textareaDataList.input.textareaConfig.componentId}
+                        textareaConfig={textareaDataList.input.textareaConfig}
+                        handleClick={handleClickTextarea}
+                        handleBlur={handleBlurTextarea}
+                        handleInput={handleInputTextarea}
+                    ></Textarea>
+                    <Textarea
+                        key={textareaDataList.output.textareaConfig.componentId}
+                        textareaConfig={textareaDataList.output.textareaConfig}
+                        handleClick={handleClickTextarea}
+                        handleBlur={handleBlurTextarea}
+                        handleInput={handleInputTextarea}
+                    ></Textarea>
+                </div>
             </div>
         </div>
     )

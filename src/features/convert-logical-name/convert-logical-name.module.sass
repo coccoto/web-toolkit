@@ -1,0 +1,31 @@
+@use "sass:color"
+@use '@/styles/utils/mixins'
+@use '@/styles/utils/colors'
+
+.container
+    background-color: colors.$card-background-color
+
+.section-header
+    font-size: 1.75rem
+    font-weight: 500
+
+.sub-section-header
+    font-size: 1.5rem
+    font-weight: 500
+    margin: 0
+
+.main-container
+    display: flex
+    flex-direction: column
+    gap: 1rem
+
+.main-wrapper
+    display: flex
+    flex-direction: column
+    gap: 0.75rem
+    padding: 2rem
+    border: 1px solid colors.$border-color
+
+.button-wrapper
+    display: flex
+    gap: 1rem

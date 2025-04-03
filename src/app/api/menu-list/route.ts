@@ -1,9 +1,9 @@
 // next
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-// @coccoto
-import { DBManager } from '@coccoto/node-dbmanager'
-import { logger } from '@coccoto/node-logmanager'
+// lib
+import { dbManager } from '@/lib/dbManager'
+import { logger } from '@/lib/logger'
 // service
 import MenuListService from '@/services/MenuListService'
 // types
@@ -12,7 +12,6 @@ import { ViewMenuType } from '@/types/ViewMenuType'
 
 type RequestBody = ApiRequestType<{}>
 
-const dbManager = new DBManager()
 const apiResponse: ApiResponseType<ViewMenuType[]> = initApiResponseType<ViewMenuType[]>()
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
@@ -21,7 +20,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         // const requestBody = await request.json() as RequestBody
 
         // Service を初期化する
-        const menuListService = new MenuListService(dbManager)
+        const menuListService = new MenuListService()
 
         apiResponse.result = await menuListService.fetchMenuList()
         apiResponse.code = 200
