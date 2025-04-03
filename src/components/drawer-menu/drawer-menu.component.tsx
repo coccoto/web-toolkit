@@ -1,7 +1,7 @@
 // react
 import React from 'react'
 // types
-import { ViewMenuType } from '@/types/ViewMenuType'
+import { MenuType } from '@/types/MenuType'
 // styles
 import styles from '@/components/drawer-menu/drawer-menu.module.sass'
 // @mui
@@ -15,7 +15,7 @@ import ListSubheader from '@mui/material/ListSubheader'
 
 type Props = {
     isOpenDrawerMenu: boolean,
-    menuData: ViewMenuType[],
+    menuList: MenuType[],
     setIsOpenDrawerMenu: (isOpenDrawerMenu: boolean) => void,
 }
 
@@ -41,11 +41,11 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
 
     // Create Element
     const elemMenu = () => {
-        if (props.menuData === null || props.menuData === undefined || Object.keys(props.menuData).length === 0) {
+        if (props.menuList === null || props.menuList === undefined || Object.keys(props.menuList).length === 0) {
             return
         }
-        const section1Data = props.menuData.filter((item) => item.category_type === 1)
-        const section2Data = props.menuData.filter((item) => item.category_type === 2)
+        const section1Data = props.menuList.filter((item) => item.category_type === 1)
+        const section2Data = props.menuList.filter((item) => item.category_type === 2)
 
         return (
             <List className={styles['menu-wrapper']}>

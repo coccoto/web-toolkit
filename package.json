@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@coccoto/node-dbmanager": "^2.2.0",
+    "@coccoto/node-dbmanager": "^2.3.0",
     "@coccoto/node-logmanager": "^2.2.0",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",

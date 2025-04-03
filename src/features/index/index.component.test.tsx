@@ -4,9 +4,9 @@ import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 // components
 import Index from './index.component'
-import type { ViewMenuType } from '@/types/ViewMenuType'
+import type { MenuType } from '@/types/MenuType'
 
-const menuData: ViewMenuType[] = [
+const menuList: MenuType[] = [
     {
         menu_id: 1,
         app_name: 'app_name_1',
@@ -34,7 +34,7 @@ const menuData: ViewMenuType[] = [
 describe('index.component', () => {
 
     it('category_type: 1 のアイテムが表示されること', () => {
-        render(<Index menuData={menuData}></Index>)
+        render(<Index menuList={menuList}></Index>)
     
         // アイテムが表示されること
         expect(screen.getByText('feature_name_1')).toBeInTheDocument()
@@ -44,7 +44,7 @@ describe('index.component', () => {
     })
     
     it('category_type: 2 のアイテムが表示されないこと', () => {
-        render(<Index menuData={menuData}></Index>)
+        render(<Index menuList={menuList}></Index>)
 
         // アイテムが表示されないこと
         expect(screen.queryByText('feature_name_2')).not.toBeInTheDocument()

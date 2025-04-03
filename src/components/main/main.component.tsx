@@ -7,7 +7,7 @@ import Header from '@/components/header/header.component'
 import Footer from '@/components/footer/footer.component'
 import { DrawerMenu, Handler } from '@/components/drawer-menu/drawer-menu.component'
 // types
-import { ViewMenuType } from '@/types/ViewMenuType'
+import { MenuType } from '@/types/MenuType'
 // styles
 import styles from '@/components/main/main.module.sass'
 // @mui
@@ -15,7 +15,7 @@ import Toolbar from '@mui/material/Toolbar'
 
 type Props = {
     children: React.ReactNode,
-    menuData: ViewMenuType[],
+    menuList: MenuType[],
 }
 
 export default (props: Props) => {
@@ -38,7 +38,7 @@ export default (props: Props) => {
             <div className={styles['main-wrapper']}>
                 <DrawerMenu
                     isOpenDrawerMenu={isOpenDrawerMenu}
-                    menuData={props.menuData}
+                    menuList={props.menuList}
                     setIsOpenDrawerMenu={setIsOpenDrawerMenu}
                     ref={refDrawerMenu}
                 ></DrawerMenu>

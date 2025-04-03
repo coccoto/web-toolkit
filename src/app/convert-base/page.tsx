@@ -3,20 +3,20 @@ import Main from '@/components/main/main.component'
 // features
 import ConvertBase from '@/features/convert-base/convert-base.component'
 // types
-import { ViewMenuType } from '@/types/ViewMenuType'
-// scripts
-import fetchMenuData from '@/lib/api/fetchMenuData'
+import { MenuType } from '@/types/MenuType'
+// lib
+import { fetchMenuList } from '@/lib/api/fetchMenu'
 
 export const dynamic = 'force-dynamic'
 
 export default async () => {
 
-    const menuData: ViewMenuType[] = await fetchMenuData()
+    const menuList: MenuType[] = await fetchMenuList()
 
     return (
         <Main
             children={<ConvertBase></ConvertBase>}
-            menuData={menuData}
+            menuList={menuList}
         ></Main>
     )
 }

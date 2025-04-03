@@ -3,7 +3,7 @@
 // react
 import React from 'react'
 // types
-import { ViewMenuType } from '@/types/ViewMenuType'
+import { MenuType } from '@/types/MenuType'
 // styles
 import styles from '@/features/index/index.module.sass'
 // @mui
@@ -13,17 +13,17 @@ import CardMedia from '@mui/material/CardMedia'
 import CardActionArea from '@mui/material/CardActionArea'
 
 type Props = {
-    menuData: ViewMenuType[],
+    menuList: MenuType[],
 }
 
 export default (props: Props) => {
 
     // Create Element
     const elemCard = () => {
-        if (props.menuData === null || props.menuData === undefined || Object.keys(props.menuData).length === 0) {
+        if (props.menuList === null || props.menuList === undefined || Object.keys(props.menuList).length === 0) {
             return
         }
-        const section1Data = props.menuData.filter((item) => item.category_type === 1)
+        const section1Data = props.menuList.filter((item) => item.category_type === 1)
 
         return (
             <div className={styles['card-container']}>

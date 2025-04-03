@@ -4,9 +4,9 @@ import { render, screen  } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 // components
 import { DrawerMenu, Handler } from './drawer-menu.component'
-import type { ViewMenuType } from '@/types/ViewMenuType'
+import type { MenuType } from '@/types/MenuType'
 
-const menuData: ViewMenuType[] = [
+const menuList: MenuType[] = [
     {
         menu_id: 1,
         app_name: 'app_name_1',
@@ -37,7 +37,7 @@ describe('drawer-menu.component', () => {
         render(
             <DrawerMenu
                 isOpenDrawerMenu={false}
-                menuData={menuData}
+                menuList={menuList}
                 setIsOpenDrawerMenu={vi.fn()}
             ></DrawerMenu>
         )
@@ -55,7 +55,7 @@ describe('drawer-menu.component', () => {
         render(
             <DrawerMenu
                 isOpenDrawerMenu={true}
-                menuData={menuData}
+                menuList={menuList}
                 setIsOpenDrawerMenu={vi.fn()}
             ></DrawerMenu>
         )
@@ -69,11 +69,11 @@ describe('drawer-menu.component', () => {
         expect(screen.getAllByText('app_name_2')).toHaveLength(2)
     })
 
-    it('menuData: [] の時の処理が適切であること', () => {
+    it('menuList: [] の時の処理が適切であること', () => {
         render(
             <DrawerMenu
                 isOpenDrawerMenu={true}
-                menuData={[]}
+                menuList={[]}
                 setIsOpenDrawerMenu={vi.fn()}
             ></DrawerMenu>
         )

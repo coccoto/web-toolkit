@@ -1,4 +1,4 @@
-// scripts
+// utils
 import getLocation from '@/utils/getLocation'
 
 export default async <T>(endpoint: string, options: RequestInit): Promise<T> => {

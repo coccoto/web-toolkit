@@ -5,7 +5,7 @@ import React from 'react'
 // components
 import { InputField, InputConfigType } from '@/components/input-field/input-field.component'
 import IconButton from '@/components/icon-button/icon-button.component'
-// scripts
+// lib
 import fetchConvertLogicalName from '@/lib/api/fetchConvertLogicalName'
 // types
 import { LogicalNameCandidate } from '@/types/OpenApiType'
@@ -85,7 +85,7 @@ export default () => {
     return (
         <div className={styles['container']}>
             <div>
-                <h2 className={styles['section-header']}>データベース物理名称命名ツール</h2>
+                <h2 className={styles['section-header']}>DB 物理名称命名ツール</h2>
             </div>
             <div className={styles['main-container']}>
                 <div className={styles['main-wrapper']}>

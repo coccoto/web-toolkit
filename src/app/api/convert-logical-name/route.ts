@@ -26,6 +26,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         const openApiService = new OpenApiService()
         const result = await openApiService.convertLogicalName(requestBody.logicalName, requestBody.convertType)
 
+        // 返り値をセットする
         apiResponse.result = result
         apiResponse.code = 200
         apiResponse.message = 'success'

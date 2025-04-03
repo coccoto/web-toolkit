@@ -1,5 +1,5 @@
-// ViewMenuType
-export type ViewMenuType = {
+// MenuType
+export type MenuType = {
     menu_id: number,
     app_name: string,
     feature_name: string,
@@ -10,7 +10,7 @@ export type ViewMenuType = {
     category_type: number,
     sort_order: number,
 }
-export const initViewMenuType = (): ViewMenuType => {
+export const initMenuType = (): MenuType => {
     return {
         menu_id: 0,
         app_name: '',
