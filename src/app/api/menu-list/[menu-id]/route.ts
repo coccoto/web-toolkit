@@ -10,23 +10,23 @@ import MenuListService from '@/services/MenuListService'
 import { ApiRequestType, ApiResponseType, initApiResponseType } from '@/types/ApiType'
 import { MenuType } from '@/types/MenuType'
 
-type PathParams = {
-    params: {
+type Params = {
+    params: Promise<{
         'menu-id': string
-    }
+    }>
 }
 const apiResponse: ApiResponseType<MenuType> = initApiResponseType<MenuType>()
 
-export async function GET(request: NextRequest, { params }: PathParams): Promise<NextResponse> {
+export async function GET(request: NextRequest, { params }: Params): Promise<NextResponse> {
     try {
         await dbManager.connect()
-        params = await params
+        const { 'menu-id': menuId } = await params
 
         // Service を初期化する
         const menuListService = new MenuListService()
 
         // 返り値をセットする
-        apiResponse.result = await menuListService.fetchMenu(Number(params['menu-id']))
+        apiResponse.result = await menuListService.fetchMenu(Number(menuId))
         apiResponse.code = 200
         apiResponse.message = 'success'
 
