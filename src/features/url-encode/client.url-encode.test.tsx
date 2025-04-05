@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 // components
-import UrlEncode from './client.url-encode'
+import ClientUrlEncode from './client.url-encode'
 
 const user = userEvent.setup()
 
@@ -12,10 +12,10 @@ const getInputs = () => ({
     output: screen.getByLabelText('変換後のデータ'),
 })
 
-describe('url-encode.component', () => {
+describe('client.url-encode', () => {
 
     it('エンコードが適切に動作すること', async () => {
-        render(<UrlEncode></UrlEncode>)
+        render(<ClientUrlEncode></ClientUrlEncode>)
 
         const { input, output } = getInputs()
 
@@ -27,7 +27,7 @@ describe('url-encode.component', () => {
     })
 
     it('デコードが適切に動作すること', async () => {
-        render(<UrlEncode></UrlEncode>)
+        render(<ClientUrlEncode></ClientUrlEncode>)
 
         const { input, output } = getInputs()
         const decodeButton = screen.getByRole('button', { name: 'デコード' })
@@ -41,7 +41,7 @@ describe('url-encode.component', () => {
     })
 
     it('エンコードモードとデコードモードを切り替えできること', async () => {
-        render(<UrlEncode></UrlEncode>)
+        render(<ClientUrlEncode></ClientUrlEncode>)
 
         const { input, output } = getInputs()
         const encordButton = screen.getByRole('button', { name: 'エンコード' })
@@ -65,7 +65,7 @@ describe('url-encode.component', () => {
     })
 
     it('選択済みのトグルボタンをクリックしても、選択されたままであること', async () => {
-        render(<UrlEncode></UrlEncode>)
+        render(<ClientUrlEncode></ClientUrlEncode>)
 
         const encodeButton = screen.getByRole('button', { name: 'エンコード' })
 

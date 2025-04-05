@@ -3,7 +3,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 // components
-import Index from './client.index'
+import ClientIndex from './client.index'
 import type { MenuType } from '@/types/MenuType'
 
 const menuList: MenuType[] = [
@@ -31,10 +31,10 @@ const menuList: MenuType[] = [
     },
 ]
 
-describe('index.component', () => {
+describe('client.index', () => {
 
     it('category_type: 1 のアイテムが表示されること', () => {
-        render(<Index menuList={menuList}></Index>)
+        render(<ClientIndex menuList={menuList}></ClientIndex>)
     
         // アイテムが表示されること
         expect(screen.getByText('feature_name_1')).toBeInTheDocument()
@@ -44,7 +44,7 @@ describe('index.component', () => {
     })
     
     it('category_type: 2 のアイテムが表示されないこと', () => {
-        render(<Index menuList={menuList}></Index>)
+        render(<ClientIndex menuList={menuList}></ClientIndex>)
 
         // アイテムが表示されないこと
         expect(screen.queryByText('feature_name_2')).not.toBeInTheDocument()
