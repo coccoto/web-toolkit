@@ -5,7 +5,7 @@ import { createNameSuggestionPrompt } from '@/utils/prompts/convertLogicalNamePr
 // types
 import { LogicalNameCandidate } from '@/types/OpenApiType'
 
-export default class {
+export default class OpenApiService {
 
     private model: string
     private openai: OpenAI
