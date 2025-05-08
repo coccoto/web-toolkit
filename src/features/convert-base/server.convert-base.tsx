@@ -1,21 +1,21 @@
 // features
 import ClientConvertBase from '@/features/convert-base/client.convert-base'
-// lib
-import { fetchMenu } from '@/lib/api/fetchMenu'
 // types
 import { MenuType } from '@/types/MenuType'
 // styles
 import styles from '@/features/convert-base/server.convert-base.module.sass'
 
-export default async () => {
+type Props = {
+    menu: MenuType
+}
 
-    const menu: MenuType = await fetchMenu('1')
+export default async (props: Props) => {
 
     return (
         <div className={styles['container']}>
             <div>
-                <h2 className={styles['header']}>{menu.feature_name}</h2>
-                <div className={styles['description']}>{menu.description}</div>
+                <h2 className={styles['header']}>{props.menu.feature_name}</h2>
+                <div className={styles['description']}>{props.menu.description}</div>
             </div>
             <ClientConvertBase></ClientConvertBase>
         </div>

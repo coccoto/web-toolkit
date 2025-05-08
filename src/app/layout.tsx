@@ -1,37 +1,42 @@
+import type { Metadata } from 'next'
+import { M_PLUS_Rounded_1c } from 'next/font/google'
 // providers
 import BundleProvider from '@/providers/bundleProvider'
 // styles
 import '@/styles/foundation/base.sass'
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+    title: 'Web Toolkit',
+    description: 'Web Toolkit は、開発者のためのブラウザだけで使えるツールセットです。',
+    authors: [
+        { name: 'coccoto' }
+    ],
+    openGraph: {
+        url: 'https://web-toolkit.coccoto.com/',
+        type: 'website',
+        title: 'Web Toolkit',
+        description: 'Web Toolkit は、開発者のためのブラウザだけで使えるツールセットです。',
+        images: ['/favicons/icon-512x512.png'],
+    },
+    twitter: {
+        card: 'summary',
+        creator: '@coccoto',
+    },
+    icons: {
+        icon: '/favicons/icon-32x32.png',
+        apple: '/favicons/icon-256x256.png',
+    },
+}
 
+const GoogleFonts = M_PLUS_Rounded_1c({
+    weight: ['300', '400', '500'],
+    subsets: ['latin'],
+})
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html>
-            <head>
-                <meta charSet='utf-8'></meta>
-                <meta name='viewport' content='width=device-width, initial-scale=1'></meta>
-                <title>Web Toolkit</title>
-                <meta name='description' content='Web Toolkit は、開発者のためのブラウザだけで使えるツールセットです。'></meta>
-                <meta name='author' content='coccoto'></meta>
-                {/* OGP */}
-                <meta property='og:url' content='https://web-toolkit.coccoto.com/'></meta>
-                <meta property='og:type' content='website'></meta>
-                <meta property='og:title' content='Web Toolkit'></meta>
-                <meta property='og:description' content='Web Toolkit は、開発者のためのブラウザだけで使えるツールセットです。'></meta>
-                <meta property='og:image' content='favicons/icon-512x512.png'></meta>
-                {/* Twitter */}
-                <meta name='twitter:card' content='summary'></meta>
-                <meta name='twitter:creator' content='@coccoto'></meta>
-                {/* Favicon */}
-                <link rel='icon' type='image/png' href='favicons/icon-32x32.png'></link>
-                <link rel='apple-touch-icon' href='favicons/icon-256x256.png'></link>
-
-                {/* Google Fonts */}
-                <link rel='preconnect' href='https://fonts.googleapis.com'></link>
-                <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous'></link>
-                <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500&display=swap'></link>
-            </head>
-            <body>
+            <body className={GoogleFonts.className}>
                 <BundleProvider>
                     {children}
                 </BundleProvider>

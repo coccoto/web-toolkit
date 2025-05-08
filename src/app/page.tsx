@@ -9,13 +9,16 @@ import { fetchMenuList } from '@/lib/api/fetchMenu'
 
 export const dynamic = 'force-dynamic'
 
-export default async () => {
+const menuList: MenuType[] = await fetchMenuList()
 
-    const menuList: MenuType[] = await fetchMenuList()
+export default async () => {
 
     return (
         <Main
-            children={<ServerIndex menuList={menuList}></ServerIndex>}
+            children={
+                <ServerIndex
+                    menuList={menuList}
+                ></ServerIndex>}
             menuList={menuList}
         ></Main>
     )
