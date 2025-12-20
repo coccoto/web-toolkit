@@ -31,6 +31,7 @@ export const metadata: Metadata = {
 const GoogleFonts = M_PLUS_Rounded_1c({
     weight: ['300', '400', '500'],
     subsets: ['latin'],
+    preload: false,
 })
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

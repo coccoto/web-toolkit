@@ -3,7 +3,10 @@
  */
 const nextConfig = {
     compress: true,
-    poweredByHeader: false
+    poweredByHeader: false,
+    experimental: {
+        optimizePackageImports: ['@mui/material', '@mui/icons-material']
+    }
 }
 
 module.exports = nextConfig
