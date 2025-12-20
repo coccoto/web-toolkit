@@ -5,7 +5,11 @@ const nextConfig = {
     compress: true,
     poweredByHeader: false,
     experimental: {
-        optimizePackageImports: ['@mui/material', '@mui/icons-material']
+        optimizePackageImports: [
+            '@mui/material',
+            '@mui/icons-material',
+            '@mui/material-nextjs'
+        ]
     }
 }
 
