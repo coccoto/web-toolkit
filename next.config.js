@@ -1,8 +1,9 @@
-const path = require('path')
-
 /**
  * @type {import('next').NextConfig}
  */
-const nextConfig = { reactStrictMode: false }
+const nextConfig = {
+    compress: true,
+    poweredByHeader: false
+}
 
 module.exports = nextConfig
