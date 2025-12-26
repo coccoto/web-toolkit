@@ -4,7 +4,7 @@ import Main from '@/components/main/main.component'
 // features
 import ServerConvertLogicalName from '@/features/convert-logical-name/server.convert-logical-name'
 // types
-import { MenuType } from '@/types/MenuType'
+import { MenuType } from '@/types/menu.types'
 // lib
 import { fetchMenu, fetchMenuList } from '@/lib/api/fetchMenu'
 

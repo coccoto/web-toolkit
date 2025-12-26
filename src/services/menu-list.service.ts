@@ -1,7 +1,7 @@
 // lib
 import { dbManager } from '@/lib/dbManager'
 // types
-import { MenuType } from '@/types/MenuType'
+import { MenuType } from '@/types/menu.types'
 
 export default class {
 

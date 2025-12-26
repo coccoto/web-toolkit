@@ -1,6 +1,6 @@
 // types
-import { ApiResponseType } from '@/types/ApiType'
-import { LogicalNameCandidate } from '@/types/OpenApiType'
+import { ApiResponseType } from '@/types/api.types'
+import { LogicalNameCandidate } from '@/types/openapi.types'
 // lib
 import fetchRequest from '@/lib/api/fetchRequest'
 

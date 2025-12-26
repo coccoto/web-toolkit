@@ -1,7 +1,7 @@
 // features
 import ClientConvertBase from '@/features/convert-base/client.convert-base'
 // types
-import { MenuType } from '@/types/MenuType'
+import { MenuType } from '@/types/menu.types'
 // styles
 import styles from '@/features/convert-base/server.convert-base.module.sass'
 

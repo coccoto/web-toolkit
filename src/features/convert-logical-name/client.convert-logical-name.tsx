@@ -8,7 +8,7 @@ import IconButton from '@/components/icon-button/icon-button.component'
 // lib
 import fetchConvertLogicalName from '@/lib/api/fetchConvertLogicalName'
 // types
-import { LogicalNameCandidate } from '@/types/OpenApiType'
+import { LogicalNameCandidate } from '@/types/openapi.types'
 // @mui
 import SouthIcon from '@mui/icons-material/South'
 // styles

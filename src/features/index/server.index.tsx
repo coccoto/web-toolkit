@@ -3,7 +3,7 @@ import ClientIndex from '@/features/index/client.index'
 // styles
 import styles from '@/features/index/server.index.module.sass'
 // types
-import { MenuType } from '@/types/MenuType'
+import { MenuType } from '@/types/menu.types'
 
 type Props = {
     menuList: MenuType[],

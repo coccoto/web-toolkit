@@ -7,7 +7,7 @@ import AppBar from '@/components/app-bar/app-bar.component'
 import Footer from '@/components/footer/footer.component'
 import { DrawerMenu, Handler } from '@/components/drawer-menu/drawer-menu.component'
 // types
-import { MenuType } from '@/types/MenuType'
+import { MenuType } from '@/types/menu.types'
 // styles
 import styles from '@/components/main/main.module.sass'
 // @mui

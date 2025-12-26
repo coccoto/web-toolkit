@@ -1,7 +1,7 @@
 // features
 import ClientConvertLogicalName from '@/features/convert-logical-name/client.convert-logical-name'
 // types
-import { MenuType } from '@/types/MenuType'
+import { MenuType } from '@/types/menu.types'
 // styles
 import styles from '@/features/convert-logical-name/server.convert-logical-name.module.sass'
 

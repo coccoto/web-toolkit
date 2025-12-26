@@ -5,10 +5,10 @@ import type { NextRequest } from 'next/server'
 import { dbManager } from '@/lib/dbManager'
 import { logger } from '@/lib/logger'
 // service
-import OpenApiService from '@/services/OpenApiService'
+import OpenApiService from '@/services/openapi.service'
 // types
-import { ApiRequestType, ApiResponseType, initApiResponseType } from '@/types/ApiType'
-import { LogicalNameCandidate } from '@/types/OpenApiType'
+import { ApiRequestType, ApiResponseType, initApiResponseType } from '@/types/api.types'
+import { LogicalNameCandidate } from '@/types/openapi.types'
 
 type RequestBody = ApiRequestType<{
     logicalName: string

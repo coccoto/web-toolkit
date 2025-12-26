@@ -3,7 +3,7 @@ import Main from '@/components/main/main.component'
 // features
 import ServerIndex from '@/features/index/server.index'
 // types
-import { MenuType } from '@/types/MenuType'
+import { MenuType } from '@/types/menu.types'
 // lib
 import { fetchMenuList } from '@/lib/api/fetchMenu'
 

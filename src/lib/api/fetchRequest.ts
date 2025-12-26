@@ -1,5 +1,5 @@
 // utils
-import getLocation from '@/utils/getLocation'
+import getLocation from '@/lib/get-location'
 
 export default async <T>(endpoint: string, options: RequestInit): Promise<T> => {
     const requestUrl = await getLocation() + endpoint

@@ -4,7 +4,7 @@ import Main from '@/components/main/main.component'
 // features
 import ServerUrlEncode from '@/features/url-encode/server.url-encode'
 // types
-import { MenuType } from '@/types/MenuType'
+import { MenuType } from '@/types/menu.types'
 // lib
 import { fetchMenu, fetchMenuList } from '@/lib/api/fetchMenu'
 

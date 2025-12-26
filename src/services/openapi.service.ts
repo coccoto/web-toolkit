@@ -1,9 +1,9 @@
 // openai
 import OpenAI from 'openai'
 // utils
-import { createNameSuggestionPrompt } from '@/utils/prompts/convertLogicalNamePrompt'
+import { createNameSuggestionPrompt } from '@/lib/prompts/convert-logical-name'
 // types
-import { LogicalNameCandidate } from '@/types/OpenApiType'
+import { LogicalNameCandidate } from '@/types/openapi.types'
 
 export default class OpenApiService {
 

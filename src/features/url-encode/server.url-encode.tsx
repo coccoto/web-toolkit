@@ -3,7 +3,7 @@ import ClientUrlEncode from '@/features/url-encode/client.url-encode'
 // lib
 import { fetchMenu } from '@/lib/api/fetchMenu'
 // types
-import { MenuType } from '@/types/MenuType'
+import { MenuType } from '@/types/menu.types'
 // styles
 import styles from '@/features/url-encode/server.url-encode.module.sass'
 

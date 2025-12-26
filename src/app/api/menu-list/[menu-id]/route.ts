@@ -5,10 +5,10 @@ import type { NextRequest } from 'next/server'
 import { dbManager } from '@/lib/dbManager'
 import { logger } from '@/lib/logger'
 // service
-import MenuListService from '@/services/MenuListService'
+import MenuListService from '@/services/menu-list.service'
 // types
-import { ApiRequestType, ApiResponseType, initApiResponseType } from '@/types/ApiType'
-import { MenuType } from '@/types/MenuType'
+import { ApiRequestType, ApiResponseType, initApiResponseType } from '@/types/api.types'
+import { MenuType } from '@/types/menu.types'
 
 type Params = {
     params: Promise<{

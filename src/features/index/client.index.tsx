@@ -3,7 +3,7 @@
 // react
 import React from 'react'
 // types
-import { MenuType } from '@/types/MenuType'
+import { MenuType } from '@/types/menu.types'
 // styles
 import styles from '@/features/index/client.index.module.sass'
 // @mui
