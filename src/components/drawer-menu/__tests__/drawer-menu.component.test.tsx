@@ -3,7 +3,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { render, screen  } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 // components
-import { DrawerMenu, Handler } from './drawer-menu.component'
+import { DrawerMenu, Handler } from '../drawer-menu.component'
 import type { MenuType } from '@/types/menu.types'
 
 const menuList: MenuType[] = [
