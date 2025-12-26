@@ -1,5 +1,5 @@
 // lib
-import { dbManager } from '@/lib/dbManager'
+import { dbManager } from '@/lib/database/db-manager'
 // types
 import { MenuType } from '@/types/menu.types'
 
@@ -8,7 +8,7 @@ export default class {
     constructor() {}
 
     public async fetchMenuList(): Promise<MenuType[]> {
-        const sql = await dbManager.readFile(process.cwd() + '/src/sql/selectMenuList.sql')
+        const sql = await dbManager.readFile(process.cwd() + '/src/lib/database/queries/select-menu-list.sql')
         const result = await dbManager.select<MenuType>(sql)
         const menuList: MenuType[] = result as MenuType[]
         return menuList
@@ -18,7 +18,7 @@ export default class {
         const params = [
             menuId
         ]
-        const sql = await dbManager.readFile(process.cwd() + '/src/sql/selectMenu.sql')
+        const sql = await dbManager.readFile(process.cwd() + '/src/lib/database/queries/select-menu.sql')
         const result = await dbManager.select<MenuType>(sql, params)
 
         const menu: MenuType = result[0] as MenuType

@@ -1,5 +1,5 @@
 // provider
-import ThemeProvider from '@/providers/themeProvider'
+import ThemeProvider from '@/providers/theme-provider'
 
 const BundleProvider = ({ children }: { children: React.ReactNode }) => {
     return (

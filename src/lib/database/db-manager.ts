@@ -1,5 +1,5 @@
 // lib
-import { logger } from '@/lib/logger'
+import { logger } from '@/lib/utils/logger'
 // @coccoto
 import { DBManager } from '@coccoto/node-dbmanager'
 

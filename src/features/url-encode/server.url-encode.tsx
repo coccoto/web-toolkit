@@ -1,7 +1,7 @@
 // features
 import ClientUrlEncode from '@/features/url-encode/client.url-encode'
 // lib
-import { fetchMenu } from '@/lib/api/fetchMenu'
+import { fetchMenu } from '@/lib/api/fetch-menu'
 // types
 import { MenuType } from '@/types/menu.types'
 // styles

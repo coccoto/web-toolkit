@@ -2,7 +2,7 @@
 import { ApiResponseType } from '@/types/api.types'
 import { LogicalNameCandidate } from '@/types/openapi.types'
 // lib
-import fetchRequest from '@/lib/api/fetchRequest'
+import fetchRequest from '@/lib/api/fetch-request'
 
 export default async (inputLogicalName: string, convertType: 0 | 1) => {
     const requestData = {

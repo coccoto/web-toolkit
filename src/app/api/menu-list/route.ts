@@ -2,8 +2,8 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 // lib
-import { dbManager } from '@/lib/dbManager'
-import { logger } from '@/lib/logger'
+import { dbManager } from '@/lib/database/db-manager'
+import { logger } from '@/lib/utils/logger'
 // service
 import MenuListService from '@/services/menu-list.service'
 // types

@@ -5,7 +5,7 @@ import ServerIndex from '@/features/index/server.index'
 // types
 import { MenuType } from '@/types/menu.types'
 // lib
-import { fetchMenuList } from '@/lib/api/fetchMenu'
+import { fetchMenuList } from '@/lib/api/fetch-menu'
 
 export const dynamic = 'force-dynamic'
 

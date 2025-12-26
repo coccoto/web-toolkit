@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { M_PLUS_Rounded_1c } from 'next/font/google'
 // providers
-import BundleProvider from '@/providers/bundleProvider'
+import BundleProvider from '@/providers/bundle-provider'
 // styles
 import '@/styles/foundation/base.sass'
 

@@ -6,7 +6,7 @@ import React from 'react'
 import { InputField, InputConfigType } from '@/components/input-field/input-field.component'
 import IconButton from '@/components/icon-button/icon-button.component'
 // lib
-import fetchConvertLogicalName from '@/lib/api/fetchConvertLogicalName'
+import fetchConvertLogicalName from '@/lib/api/fetch-convert-logical-name'
 // types
 import { LogicalNameCandidate } from '@/types/openapi.types'
 // @mui

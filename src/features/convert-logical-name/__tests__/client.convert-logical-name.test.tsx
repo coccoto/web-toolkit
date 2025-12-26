@@ -5,9 +5,9 @@ import userEvent from '@testing-library/user-event'
 // components
 import ClientConvertLogicalName from '../client.convert-logical-name'
 // lib
-import fetchConvertLogicalName from '@/lib/api/fetchConvertLogicalName'
+import fetchConvertLogicalName from '@/lib/api/fetch-convert-logical-name'
 
-vi.mock('@/lib/api/fetchConvertLogicalName', () => ({
+vi.mock('@/lib/api/fetch-convert-logical-name', () => ({
     default: vi.fn().mockResolvedValue({
         logicalName: ['結果 1', '結果 2', '結果 3', '結果 4', '結果 5']
     })

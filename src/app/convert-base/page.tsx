@@ -6,7 +6,7 @@ import ServerConvertBase from '@/features/convert-base/server.convert-base'
 // types
 import { MenuType } from '@/types/menu.types'
 // lib
-import { fetchMenu, fetchMenuList } from '@/lib/api/fetchMenu'
+import { fetchMenu, fetchMenuList } from '@/lib/api/fetch-menu'
 
 export const dynamic = 'force-dynamic'
 
