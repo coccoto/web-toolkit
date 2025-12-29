@@ -5,6 +5,10 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "${PORT}:${PORT}"
+      - "${NEXT_PUBLIC_PORT}:${NEXT_PUBLIC_PORT}"
+    volumes:
+      - ./logs:/app/logs
     env_file:
       - .env
+    environment:
+      - DB_HOST=172.17.0.1
