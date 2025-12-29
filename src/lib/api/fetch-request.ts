@@ -15,4 +15,3 @@ export default async <T>(endpoint: string, options: RequestInit): Promise<T> => 
         return {} as T
     }
 }
-
