@@ -41,7 +41,7 @@ export const DrawerMenu = React.forwardRef((props: Props, ref: React.ForwardedRe
 
     // Create Element
     const elemMenu = () => {
-        if (props.menuList === null || props.menuList === undefined || Object.keys(props.menuList).length === 0) {
+        if (! props.menuList || props.menuList.length === 0) {
             return
         }
         const sectionData_1 = props.menuList.filter((item) => item.category_type === 1)

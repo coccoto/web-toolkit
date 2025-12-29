@@ -19,7 +19,7 @@ type Props = {
 export default (props: Props) => {
 
     const createElemCard = () => {
-        if (! props.menuList || ! props.menuList) {
+        if (! props.menuList || props.menuList.length === 0) {
             return
         }
         const sectionData_1 = props.menuList.filter((item) => item.category_type === 1)

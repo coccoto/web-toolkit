@@ -36,7 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 # coccoto
-logs
 .claude
 .serena
+logs
 generated
