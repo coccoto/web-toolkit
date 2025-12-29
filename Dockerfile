@@ -8,6 +8,9 @@ COPY . .
 # 依存関係を解決
 RUN npm install
 
+# Prisma Client を生成
+RUN npm run prisma:generate
+
 # アプリケーションをビルド
 RUN npm run release
 

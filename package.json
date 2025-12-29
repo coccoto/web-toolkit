@@ -6,7 +6,8 @@
   "scripts": {
     "dev-server": "next dev -p 18010",
     "build": "next build",
-    "release": "run-s release:clean build",
+    "prisma:generate": "prisma generate",
+    "release": "run-s release:clean prisma:generate build",
     "release:clean": "rimraf dist",
     "start": "next start -p 18010",
     "lint": "next lint",
