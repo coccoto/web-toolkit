@@ -17,9 +17,7 @@ export default class {
 
     public async fetchMenu(menuId: number): Promise<MenuType> {
         const sql = await loadQuery('select-menu.sql')
-        const result = await prisma.$queryRaw<MenuType[]>(
-            Prisma.raw(sql.replace('?', menuId.toString()))
-        )
+        const result = await prisma.$queryRawUnsafe<MenuType[]>(sql, menuId)
         return result[0]
     }
 }
