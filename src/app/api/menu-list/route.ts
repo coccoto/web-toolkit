@@ -2,7 +2,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 // lib
-import { dbManager } from '@/lib/database/db-manager'
 import { logger } from '@/lib/utils/logger'
 // service
 import MenuListService from '@/services/menu-list.service'
@@ -18,8 +17,6 @@ const apiResponse: ApiResponseType<MenuType[]> = initApiResponseType<MenuType[]>
 
 export async function GET(request: NextRequest, { params }: Params): Promise<NextResponse> {
     try {
-        await dbManager.connect()
-
         // Service を初期化する
         const menuListService = new MenuListService()
 
@@ -37,8 +34,5 @@ export async function GET(request: NextRequest, { params }: Params): Promise<Nex
 
         logger.error('An error occurred in [/api/menu-list] route. Error: ' + (error as Error).message)
         return NextResponse.json({ ...apiResponse })
-
-    } finally {
-        dbManager.disconnect()
     }
 }

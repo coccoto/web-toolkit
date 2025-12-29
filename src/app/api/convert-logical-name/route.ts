@@ -2,7 +2,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 // lib
-import { dbManager } from '@/lib/database/db-manager'
 import { logger } from '@/lib/utils/logger'
 // service
 import OpenApiService from '@/services/openapi.service'
@@ -19,7 +18,6 @@ const apiResponse: ApiResponseType<LogicalNameCandidate> = initApiResponseType<L
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
     try {
-        await dbManager.connect()
         const requestBody = await request.json() as RequestBody
 
         // Service を初期化する
@@ -40,8 +38,5 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
         logger.error('An error occurred in [/api/convert-logical-name] route. Error: ' + (error as Error).message)
         return NextResponse.json({ ...apiResponse })
-
-    } finally {
-        dbManager.disconnect()
     }
 }

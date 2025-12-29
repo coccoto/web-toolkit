@@ -1,27 +1,25 @@
 // lib
-import { dbManager } from '@/lib/database/db-manager'
+import { prisma } from '@/lib/prisma'
+import { loadSql } from '@/lib/database/sql-loader'
 // types
 import { MenuType } from '@/types/menu.types'
+import { Prisma } from '../../generated/prisma/client'
 
 export default class {
 
     constructor() {}
 
     public async fetchMenuList(): Promise<MenuType[]> {
-        const sql = await dbManager.readFile(process.cwd() + '/src/lib/database/queries/select-menu-list.sql')
-        const result = await dbManager.select<MenuType>(sql)
-        const menuList: MenuType[] = result as MenuType[]
-        return menuList
+        const sql = await loadSql('select-menu-list.sql')
+        const result = await prisma.$queryRaw<MenuType[]>(Prisma.raw(sql))
+        return result
     }
 
     public async fetchMenu(menuId: number): Promise<MenuType> {
-        const params = [
-            menuId
-        ]
-        const sql = await dbManager.readFile(process.cwd() + '/src/lib/database/queries/select-menu.sql')
-        const result = await dbManager.select<MenuType>(sql, params)
-
-        const menu: MenuType = result[0] as MenuType
-        return menu
+        const sql = await loadSql('select-menu.sql')
+        const result = await prisma.$queryRaw<MenuType[]>(
+            Prisma.raw(sql.replace('?', menuId.toString()))
+        )
+        return result[0]
     }
 }
