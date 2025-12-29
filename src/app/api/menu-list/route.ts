@@ -13,7 +13,7 @@ type Params = {
     params: Promise<{
     }>
 }
-const apiResponse: ApiResponseType<MenuType[]> = initApiResponseType<MenuType[]>()
+const apiResponse: ApiResponseType<MenuType[]> = initApiResponseType([])
 
 export async function GET(request: NextRequest, { params }: Params): Promise<NextResponse> {
     try {

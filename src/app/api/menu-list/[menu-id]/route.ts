@@ -7,14 +7,14 @@ import { logger } from '@/lib/utils/logger'
 import MenuListService from '@/services/menu-list.service'
 // types
 import { ApiRequestType, ApiResponseType, initApiResponseType } from '@/types/api.types'
-import { MenuType } from '@/types/menu.types'
+import { MenuType, initMenuType } from '@/types/menu.types'
 
 type Params = {
     params: Promise<{
         'menu-id': string
     }>
 }
-const apiResponse: ApiResponseType<MenuType> = initApiResponseType<MenuType>()
+const apiResponse: ApiResponseType<MenuType> = initApiResponseType(initMenuType())
 
 export async function GET(request: NextRequest, { params }: Params): Promise<NextResponse> {
     try {

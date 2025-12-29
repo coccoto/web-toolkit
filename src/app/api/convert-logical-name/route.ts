@@ -7,14 +7,14 @@ import { logger } from '@/lib/utils/logger'
 import OpenApiService from '@/services/openapi.service'
 // types
 import { ApiRequestType, ApiResponseType, initApiResponseType } from '@/types/api.types'
-import { LogicalNameCandidate } from '@/types/openapi.types'
+import { LogicalNameCandidate, initLogicalNameCandidate } from '@/types/openapi.types'
 
 type RequestBody = ApiRequestType<{
     logicalName: string
     convertType: 0 | 1
 }>
 
-const apiResponse: ApiResponseType<LogicalNameCandidate> = initApiResponseType<LogicalNameCandidate>()
+const apiResponse: ApiResponseType<LogicalNameCandidate> = initApiResponseType(initLogicalNameCandidate())
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
     try {

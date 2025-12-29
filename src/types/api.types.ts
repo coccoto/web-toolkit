@@ -10,10 +10,10 @@ export type ApiResponseType<T = {}> = {
     code: number,
     result: T,
 }
-export const initApiResponseType = <T = {}>(): ApiResponseType<T> => {
+export const initApiResponseType = <T>(initResult: T): ApiResponseType<T> => {
     return {
         message: '',
         code: 0,
-        result: {} as T,
+        result: initResult,
     }
 }
