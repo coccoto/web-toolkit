@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model mst_menu {
+  menu_id        Int      @id
+  global_menu_id Int
+  description    String?  @db.VarChar(255)
+  image_name     String?  @db.VarChar(255)
+  category_type  Int
+  sort_order     Int
+  created_at     DateTime @default(now()) @db.DateTime(0)
+  updated_at     DateTime @default(now()) @db.DateTime(0)
+}
