@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev-server": "next dev -p 18010",
+    "dev-server": "next dev -p ${PORT}",
     "build": "next build",
     "prisma:generate": "prisma generate",
     "release": "run-s release:clean prisma:generate build",
     "release:clean": "rimraf dist",
-    "start": "next start -p 18010",
+    "start": "next start -p ${PORT}",
     "lint": "next lint",
     "test": "vitest"
   },
