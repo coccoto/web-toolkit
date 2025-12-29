@@ -1,8 +1,5 @@
-// utils
-import location from '@/lib/utils/location'
-
 export default async <T>(endpoint: string, options: RequestInit): Promise<T> => {
-    const requestUrl = await location() + endpoint
+    const requestUrl = await process.env.NEXT_PUBLIC_BASE_URL + endpoint
 
     try {
         const response = await fetch(requestUrl, options)

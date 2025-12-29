@@ -6,26 +6,20 @@ import BundleProvider from '@/providers/bundle-provider'
 import '@/styles/foundation/base.sass'
 
 export const metadata: Metadata = {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL as string),
     title: 'Web Toolkit',
     description: 'Web Toolkit は、開発者のためのブラウザだけで使えるツールセットです。',
     authors: [
         { name: 'coccoto' }
     ],
     openGraph: {
-        url: 'https://web-toolkit.coccoto.com/',
+        url: process.env.NEXT_PUBLIC_BASE_URL as string,
         type: 'website',
         title: 'Web Toolkit',
         description: 'Web Toolkit は、開発者のためのブラウザだけで使えるツールセットです。',
-        images: ['/favicons/icon-512x512.png'],
+        images: ['/favicons/favicon.png'],
     },
-    twitter: {
-        card: 'summary',
-        creator: '@coccoto',
-    },
-    icons: {
-        icon: '/favicons/icon-32x32.png',
-        apple: '/favicons/icon-256x256.png',
-    },
+    icons: '/favicons/favicon.svg',
 }
 
 const GoogleFonts = M_PLUS_Rounded_1c({
