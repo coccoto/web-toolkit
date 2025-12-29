@@ -10,5 +10,3 @@ services:
       - ./logs:/app/logs
     env_file:
       - .env
-    environment:
-      - DB_HOST=172.17.0.1
