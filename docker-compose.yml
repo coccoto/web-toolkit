@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    user: "${UID}:${GID}"
     ports:
       - "${NEXT_PUBLIC_PORT}:${NEXT_PUBLIC_PORT}"
     volumes:

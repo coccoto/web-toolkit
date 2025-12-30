@@ -38,5 +38,4 @@ next-env.d.ts
 # coccoto
 .claude
 .serena
-logs
 generated
