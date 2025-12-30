@@ -15,4 +15,5 @@ RUN npm run prisma:generate
 RUN npm run release
 
 # アプリケーションの実行
+# CMD ["npm", "run", "dev-server"]
 CMD ["npm", "run", "start"]
