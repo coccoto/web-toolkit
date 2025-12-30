@@ -1,41 +1,33 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
+# OS generated files
 .DS_Store
-*.pem
+Thumbs.db
 
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Application logs
+logs
+*.log
 
-# local env files
-# .env*.local
-# .env
+# Environment variables and secrets
+.env
 
-# vercel
-.vercel
+# Build outputs
+dist
 
-# typescript
-*.tsbuildinfo
+# Auto-generated code
+generated
+
+# Test coverage reports
+coverage
+
+# Dependencies
+node_modules
+
+# Next.js
+.next
 next-env.d.ts
 
-# coccoto
+# Winston logger
+*-audit.json
+
+# Claude Code AI assistant
 .claude
 .serena
-generated
