@@ -1,18 +1,19 @@
 FROM node:24-bookworm
 
-# OS をセットアップする
+# OS をセットアップ
 RUN apt update && apt full-upgrade -y && apt autoremove -y && apt clean
 
-# 作業ディレクトリを設定
 WORKDIR /app
 
-# プログラムをコピー
-COPY . .
+# 依存関係をインストール
+COPY ./package*.json ./
+RUN npm ci
+
+# プログラムをコンテナにコピー
+COPY ./ ./
 
 # アプリケーションをビルド
-RUN npm ci
-RUN npm run prisma:generate
 RUN npm run release
 
-# アプリケーションの実行
+# アプリケーションを実行
 CMD ["npm", "run", "start"]
