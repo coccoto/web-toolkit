@@ -1,9 +1,8 @@
 services:
   app:
     container_name: web-toolkit
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/coccoto/web-toolkit:latest
+    restart: unless-stopped
     ports:
       - "18010:18010"
     env_file:

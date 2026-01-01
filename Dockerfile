@@ -15,5 +15,8 @@ COPY ./ ./
 # アプリケーションをビルド
 RUN npm run release
 
+# GitHub リポジトリ連携
+LABEL org.opencontainers.image.source=https://github.com/coccoto/web-toolkit
+
 # アプリケーションを実行
 CMD ["npm", "run", "start"]
