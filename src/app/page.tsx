@@ -9,9 +9,8 @@ import { fetchMenuList } from '@/lib/api/fetch-menu'
 
 export const dynamic = 'force-dynamic'
 
-const menuList: MenuType[] = await fetchMenuList()
-
-export default async () => {
+export default async function Home() {
+    const menuList: MenuType[] = await fetchMenuList()
 
     return (
         <Main

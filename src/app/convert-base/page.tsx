@@ -10,21 +10,23 @@ import { fetchMenu, fetchMenuList } from '@/lib/api/fetch-menu'
 
 export const dynamic = 'force-dynamic'
 
-const menu: MenuType = await fetchMenu('1')
-const menuList: MenuType[] = await fetchMenuList()
-
-export const metadata: Metadata = {
-    title: menu.feature_name + ' - Web Toolkit',
-    description: menu.description
+export async function generateMetadata(): Promise<Metadata> {
+    const menu: MenuType = await fetchMenu('1')
+    return {
+        title: menu.feature_name + ' - Web Toolkit',
+        description: menu.description
+    }
 }
 
-export default async () => {
+export default async function ConvertBasePage() {
+    const menu: MenuType = await fetchMenu('1')
+    const menuList: MenuType[] = await fetchMenuList()
 
     return (
         <Main
             children={
                 <ServerConvertBase
-                    menu={menu}    
+                    menu={menu}
                 ></ServerConvertBase>
             }
             menuList={menuList}
