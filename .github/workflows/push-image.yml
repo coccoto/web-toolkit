@@ -31,3 +31,8 @@ jobs:
           file: Dockerfile
           push: true
           tags: ghcr.io/coccoto/web-toolkit:latest
+          build-args: |
+            NEXT_PUBLIC_ENVIRONMENT=${{ vars.NEXT_PUBLIC_ENVIRONMENT }}
+            NEXT_PUBLIC_PORT==${{ vars.NEXT_PUBLIC_PORT }}
+            NEXT_PUBLIC_BASE_URL=${{ vars.NEXT_PUBLIC_BASE_URL }}
+            DATABASE_URL=${{ vars.DATABASE_URL }}

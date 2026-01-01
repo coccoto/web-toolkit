@@ -12,12 +12,6 @@ RUN npm ci
 # プログラムをコンテナにコピー
 COPY ./ ./
 
-# 環境変数を設定
-ENV NEXT_PUBLIC_ENVIRONMENT="production"
-ENV NEXT_PUBLIC_PORT="18010"
-ENV NEXT_PUBLIC_BASE_URL="http://localhost:18010"
-ENV DATABASE_URL="mysql://user:password@localhost:3306/database"
-
 # アプリケーションをビルド
 RUN npm run release
 
