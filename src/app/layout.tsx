@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { M_PLUS_Rounded_1c } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 // providers
 import BundleProvider from '@/providers/bundle-provider'
 // styles
@@ -28,6 +29,8 @@ const GoogleFonts = M_PLUS_Rounded_1c({
     preload: false,
 })
 
+const GA_MEASUREMENT_ID = 'G-LEE2XNB6HW'
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html>
@@ -35,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <BundleProvider>
                     {children}
                 </BundleProvider>
+                <GoogleAnalytics gaId={GA_MEASUREMENT_ID}></GoogleAnalytics>
             </body>
         </html>
     )
